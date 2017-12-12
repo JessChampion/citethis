@@ -15,9 +15,8 @@ or
 __build for production with minification and view bundle analyzer report__:
 `yarn package`
 
-
-__push dist sub folder to github pages branch__:
-`yarn deploy`
+__push dist/demo sub folder to github pages branch__:
+`yarn deploy:demo`
 
 ## Demo build
 1. Build
