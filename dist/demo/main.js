@@ -628,7 +628,7 @@ exports = module.exports = __webpack_require__(29)(undefined);
 
 
 // module
-exports.push([module.i, "\n#app {\n  font-family: 'Avenir', Helvetica, Arial, sans-serif;\n  -webkit-font-smoothing: antialiased;\n  -moz-osx-font-smoothing: grayscale;\n  text-align: center;\n  color: #2c3e50;\n  margin-top: 60px;\n}\nform {\n  margin-bottom: 1rem;\n}\nlabel {\n  display: inline-block;\n  min-width: 5rem;\n}\n", ""]);
+exports.push([module.i, "\n#app {\n    font-family: 'Avenir', Helvetica, Arial, sans-serif;\n    -webkit-font-smoothing: antialiased;\n    -moz-osx-font-smoothing: grayscale;\n    text-align: center;\n    color: #2c3e50;\n    margin-top: 60px;\n}\nform {\n    margin-bottom: 1rem;\n}\nlabel {\n    display: inline-block;\n    min-width: 5rem;\n}\n", ""]);
 
 // exports
 
@@ -679,18 +679,17 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
-  name: 'DemoApp',
-  data: function data() {
-    return {
-      author: 'test author',
-      title: 'test title',
-      type: 'ARTICLE',
-      year: 2017
-    };
-  }
+    name: 'DemoApp',
+    data: function data() {
+        return {
+            author: 'test author',
+            title: 'test title',
+            type: 'ARTICLE',
+            year: 2017
+        };
+    }
 });
 
 /***/ }),

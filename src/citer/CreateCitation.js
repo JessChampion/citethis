@@ -10,8 +10,8 @@ const getTypeCode = (format, type) => pathOr('MISC', [type, format])(TYPE_CODES)
 const getEntries = compose(toPairs, omit(['type']));
 const translateTag = format => (key, value) => pair(TAGS[key][format], value);
 const concatenateEntries = format => compose(
-  join(SEPERATOR.OUTER[format]),
-  map(join(SEPERATOR.INNER[format]))
+    join(SEPERATOR.OUTER[format]),
+    map(join(SEPERATOR.INNER[format]))
 );
 
 const generateContent = (format, data) => {

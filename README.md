@@ -3,6 +3,20 @@ A plugin widget to generate citation files (.ris, .bib, .enw).
 
 Demo https://jesschampion.github.io/citethis/
 
+## Installation
+
+## Usage
+include 'cite-this.js' in your html document and instantiate up to 1 citation widget
+per page with the following markup.
+At this stage the element must have an id of 'citation', the type of element is not limited to divs.
+```
+ <div id="citation"
+    author="Example Author"
+    title="Example Document"
+    type="MISC"
+    year="2017"/>
+```
+
 ## Scripts
 __install dependencies__:
 `yarn`
@@ -39,18 +53,20 @@ Error handling:
 - ~~Add prop types validations to enforce public api~~
 
 UI:
-- Make ui nicer
+- **(Higher Priority)** Make ui nicer
 - Use BEM for scoping on ui and styles
 - add easily overridable default styling
 
 Build and deploy
 - ~~Separate component from demo app~~
-- **(Higher Priority -- in progress)** Build for use as a widget
+- ~~Build for use as a widget~~
+- **(Higher Priority)** Npm module
 
 Implementation:
 - Add support for all required types and fields
+- Support multiple elements per page
 
 Tidy up:
-- Test coverage
+- **(Higher Priority)** Test coverage
 - Hidden link for downloads (is there a nicer way to do this that won't require timeout)
 

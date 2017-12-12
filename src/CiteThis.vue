@@ -36,7 +36,7 @@
   const getExtension = format => `.${format.toLowerCase()}`;
   const concatWithoutSpace = replace(/\s/g, '');
   const getDownloadFileName = (format, author = 'ref', year = '') =>
-    `${concatWithoutSpace(author)}${year}${getExtension(format)}`;
+      `${concatWithoutSpace(author)}${year}${getExtension(format)}`;
 
   const getDownloadHref = content => `data:text/plain;charset=utf-8,${encodeURIComponent(content)}`;
   const createDownloadHref = compose(getDownloadHref, createCitation);
@@ -83,7 +83,7 @@
         };
         this.href = createDownloadHref(this.currentFormat, providedData);
         setTimeout(() => { // wait for link to set // TODO: is this the best way to do this in vue?
-          const downloadLink = this.$refs.downloadLink;
+          const { downloadLink } = this.$refs;
           if (downloadLink) {
             downloadLink.click();
           }

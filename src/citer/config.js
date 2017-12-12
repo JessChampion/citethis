@@ -32,6 +32,7 @@ export const TYPE_CODES = {
 
 
 // FIELDS
+export const VALID_TAGS = ['author', 'title', 'year', 'type'];
 export const TAGS = {
   author: {
     BIB: 'author',
