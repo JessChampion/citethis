@@ -57,7 +57,7 @@
   const getExtension = format => `.${format.toLowerCase()}`;
   const concatWithoutSpace = replace(/\s/g, '');
   const getDownloadFileName = (format, author = 'ref', year = '') =>
-    `${concatWithoutSpace(author)}${year}${getExtension(format)}`;
+      `${concatWithoutSpace(author)}${year}${getExtension(format)}`;
 
   const getDownloadHref = content => `data:text/plain;charset=utf-8,${encodeURIComponent(content)}`;
   const createDownloadHref = compose(getDownloadHref, createCitation);

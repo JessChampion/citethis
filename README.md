@@ -132,6 +132,6 @@ Implementation:
 - ~~Build for Vue component use~~
 
 Tidy up:
-- **(Higher Priority)** Test coverage - **ON HOLD  - in branch**
+- **(Higher Priority)** Test coverage
 - Hidden link for downloads (is there a nicer way to do this that won't require timeout)
 - Compile styles with sass or postcss then tidy
