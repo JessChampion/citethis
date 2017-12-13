@@ -1,10 +1,10 @@
 <template>
-  <div>
-    <CiteThisFormatSelector :formats="availableFormats"
+  <div class="citeThis">
+    <CiteThisFormatSelector class="citeThis__selector" :formats="availableFormats"
                             v-model="currentFormat"
     />
-    <CiteThisButton :cite="cite"/>
-    <a class="hidden"
+    <CiteThisButton class="citeThis__button" :cite="cite"/>
+    <a class="citeThis__download"
        target="_blank"
        ref="downloadLink"
        :download="getFileName()"
@@ -32,11 +32,21 @@
     }
     return valid;
   };
+  const validateYear = (year) => {
+    const y = parseInt('' + year, 10);
+    const valid = (!isNaN(y) && y > 0);
+    if (!valid) {
+      const message = `Invalid value '${year}' provided for year. The value must be a positive integer.`;
+      // eslint-disable-next-line no-console
+      console.error(message);
+    }
+    return valid;
+  };
 
   const getExtension = format => `.${format.toLowerCase()}`;
   const concatWithoutSpace = replace(/\s/g, '');
   const getDownloadFileName = (format, author = 'ref', year = '') =>
-      `${concatWithoutSpace(author)}${year}${getExtension(format)}`;
+    `${concatWithoutSpace(author)}${year}${getExtension(format)}`;
 
   const getDownloadHref = content => `data:text/plain;charset=utf-8,${encodeURIComponent(content)}`;
   const createDownloadHref = compose(getDownloadHref, createCitation);
@@ -62,8 +72,9 @@
         validator: validateType
       },
       year: {
-        type: Number,
-        default: null
+        type: String,
+        default: null,
+        validator: validateYear
       }
     },
     data() {
@@ -97,7 +108,16 @@
 </script>
 
 <style>
-  .hidden {
-    display: none;
+  .citeThis__selector {
+    display: inline-block;
+    font-size: 1rem;
+  }
+
+  .citeThis__button {
+    display: inline-block;
+  }
+
+  .citeThis__download {
+    display: none; /*hidden download link*/
   }
 </style>

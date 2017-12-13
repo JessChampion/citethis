@@ -1,6 +1,6 @@
 <template>
   <div>
-    <select title="Format"
+    <select title="Select citation file format"
             :value="value"
             @input="updateValue($event.target.value)">
       <option v-for="format in formats"
@@ -9,7 +9,6 @@
         {{ format }}
       </option>
     </select>
-    <div>Selected: {{ value }}</div>
   </div>
 </template>
 <script>

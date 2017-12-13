@@ -1,6 +1,7 @@
 <template>
   <button class="cite"
-          @click="cite">
+          @click="cite"
+  >
     CITE
   </button>
 </template>
@@ -16,9 +17,3 @@
     }
   };
 </script>
-
-<style>
-  .cite {
-    margin: 1rem;
-  }
-</style>

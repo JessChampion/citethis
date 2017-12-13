@@ -53,9 +53,10 @@ Error handling:
 - ~~Add prop types validations to enforce public api~~
 
 UI:
-- **(Higher Priority)** Make ui nicer
+- **(Higher Priority -- in progress)** Make ui nicer
 - Use BEM for scoping on ui and styles
 - add easily overridable default styling
+- accessibility
 
 Build and deploy
 - ~~Separate component from demo app~~

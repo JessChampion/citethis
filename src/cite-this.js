@@ -22,26 +22,15 @@ const loading = () => {
         CiteThis
       },
       render: function (createElement) {
-        console.log('rendering');
-        console.log(getRootAttributes(this.$el.attributes));
-        const props = {
-          attrs: {
-            author: 'author',
-            title: 'title',
-            type: 'MISC',
-            year: 2017
-          }
-        };
-
-        // return createElement('CiteThis', {}, props);
-        return createElement('CiteThis', props);
+        const attributes = getRootAttributes(this.$el.attributes);
+        return createElement('CiteThis', { attrs: attributes });
       }
     });
     console.debug('loaded cite-this');
-  } else {
-    // try again shortly
-    window.requestAnimationFrame(loading);
+    return;
   }
+  // try again shortly
+  window.requestAnimationFrame(loading);
 };
 
 loading();
