@@ -6,6 +6,7 @@ Demo https://jesschampion.github.io/citethis/
 ## Installation
 
 ## Usage
+### Static
 include 'cite-this.js' in your html document and instantiate up to 1 citation widget
 per page with the following markup.
 At this stage the element must have an id of 'citation', the type of element is not limited to divs.
@@ -16,6 +17,9 @@ At this stage the element must have an id of 'citation', the type of element is 
     type="MISC"
     year="2017"/>
 ```
+
+### Vue component
+// TO DO
 
 ## Scripts
 __install dependencies__:
@@ -53,10 +57,12 @@ Error handling:
 - ~~Add prop types validations to enforce public api~~
 
 UI:
-- **(Higher Priority -- in progress)** Make ui nicer
-- Use BEM for scoping on ui and styles
+- ~~Make ui nicer~~
+- ~~Use BEM for scoping on ui and styles~~
+- ~~accessibility~~
+- Flyout style picker (link for each type?) 
 - add easily overridable default styling
-- accessibility
+- Customisable button label
 
 Build and deploy
 - ~~Separate component from demo app~~
@@ -64,8 +70,9 @@ Build and deploy
 - **(Higher Priority)** Npm module
 
 Implementation:
-- Add support for all required types and fields
+- **(Higher Priority)** Add support for all required types and fields
 - Support multiple elements per page
+- Build for Vue component use
 
 Tidy up:
 - **(Higher Priority)** Test coverage

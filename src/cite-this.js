@@ -30,7 +30,9 @@ const loading = () => {
     return;
   }
   // try again shortly
-  window.requestAnimationFrame(loading);
+  setTimeout(loading, 5000);
 };
 
 loading();
+
+export default CiteThis;

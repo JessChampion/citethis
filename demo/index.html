@@ -4,9 +4,43 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>cite-this demo</title>
+  <style>
+    body {
+      font-family: 'Avenir', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      text-align: center;
+      color: #2c3e50;
+      padding: 3rem;
+    }
+
+    .demo {
+      border: 0.1rem solid rgba(44, 62, 80, 0.25);
+      border-radius: 0.25rem;
+      margin: 1rem;
+      padding: 1rem;
+    }
+  </style>
 </head>
 <body>
-<div id="app"></div>
+<h1>Cite This</h1>
+<div class="demo">
+  <div id="app"></div>
+</div>
+<div id="static" class="demo">
+  <h2>Static Citation Demo</h2>
+  <h3>Test record</h3>
+  <p>
+    Author: 'static author'<br/>
+    Title='static title'<br/>
+    Type='MISC'<br/>
+    year='2017'
+  </p>
+  <div id="citation"
+       author="static author"
+       title="static title"
+       type="MISC"
+       year="2017"/>
+</div>
 <script type=text/javascript src=./main.js></script>
 <script type=text/javascript src=../cite-this.js></script>
 </body>
