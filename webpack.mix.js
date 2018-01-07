@@ -3,7 +3,7 @@ const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPl
 
 const SRC = {
   plugin: 'src/cite-this.js',
-  component: 'src/cite-this-component.js',
+  component: 'src/CiteThisVueComponent.js',
   demo: {
     index: 'demo/index.html',
     main: 'demo/main.js',
@@ -12,7 +12,7 @@ const SRC = {
 
 const DEST = {
   dist: 'dist/',
-  demo: 'dist/demo/'
+  demo: 'dist/demo/',
 };
 
 //Build the plugin

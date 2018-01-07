@@ -37,13 +37,8 @@
 </template>
 
 <script>
-  import CiteThis from '../dist/cite-this-component.js';
-
   export default {
     name: 'DemoApp',
-    components: {
-      CiteThis
-    },
     data() {
       return {
         author: 'test author',

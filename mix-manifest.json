@@ -1,6 +1,6 @@
 {
-    "/dist/cite-this.js": "/dist/cite-this.js",
-    "/dist/cite-this-component.js": "/dist/cite-this-component.js",
     "/dist/demo/main.js": "/dist/demo/main.js",
+    "/dist/cite-this.js": "/dist/cite-this.js",
+    "/dist/CiteThisVueComponent.js": "/dist/CiteThisVueComponent.js",
     "/dist/demo/index.html": "/dist/demo/index.html"
 }
