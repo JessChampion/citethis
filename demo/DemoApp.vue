@@ -37,7 +37,7 @@
 </template>
 
 <script>
-  import CiteThis from '../src/CiteThis'
+  import CiteThis from '../dist/cite-this-component.js';
 
   export default {
     name: 'DemoApp',

@@ -58,7 +58,7 @@ export const TEMPLATE = {
   RIS: (type, body) => `TY  - ${type}\r\n${body}\r\nER  - `
 };
 
-export const SEPERATOR = {
+export const SEPARATOR = {
   INNER: {
     BIB: ' = "',
     ENW: ' ',

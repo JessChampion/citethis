@@ -1,9 +1,11 @@
 <template>
   <div class="citeThis">
-    <CiteThisFormatSelector class="citeThis__selector" :formats="availableFormats"
-                            v-model="currentFormat"
+    <CiteThisFormatSelector class="citeThis__selector"
+       :formats="availableFormats"
+       v-model="currentFormat"
     />
-    <CiteThisButton class="citeThis__button" :cite="cite"/>
+    <CiteThisButton class="citeThis__button"
+       :cite="cite"/>
     <a class="citeThis__download"
        target="_blank"
        ref="downloadLink"
@@ -33,8 +35,8 @@
     return valid;
   };
   const validateYear = (year) => {
-    const y = parseInt('' + year, 10);
-    const valid = (!isNaN(y) && y > 0);
+    const y = parseInt(`${year}`, 10);
+    const valid = (!Number.isNaN(y) && y > 0);
     if (!valid) {
       const message = `Invalid value '${year}' provided for year. The value must be a positive integer.`;
       // eslint-disable-next-line no-console

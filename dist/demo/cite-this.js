@@ -25739,7 +25739,7 @@ var translateTag = function translateTag(format) {
   };
 };
 var concatenateEntries = function concatenateEntries(format) {
-  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["b" /* compose */])(Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["f" /* join */])(__WEBPACK_IMPORTED_MODULE_1__config__["b" /* SEPERATOR */].OUTER[format]), Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["h" /* map */])(Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["f" /* join */])(__WEBPACK_IMPORTED_MODULE_1__config__["b" /* SEPERATOR */].INNER[format])));
+  return Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["b" /* compose */])(Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["f" /* join */])(__WEBPACK_IMPORTED_MODULE_1__config__["b" /* SEPARATOR */].OUTER[format]), Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["h" /* map */])(Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["f" /* join */])(__WEBPACK_IMPORTED_MODULE_1__config__["b" /* SEPARATOR */].INNER[format])));
 };
 
 var generateContent = function generateContent(format, data) {

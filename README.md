@@ -73,6 +73,7 @@ Implementation:
 - **(Higher Priority)** Add support for all required types and fields
 - Support multiple elements per page
 - Build for Vue component use
+- Change mounting loop to check on addEvent - **IN PROGRESS**
 
 Tidy up:
 - **(Higher Priority)** Test coverage

@@ -1,6 +1,6 @@
 import { compose, contains, flip, join, map, omit, pair, pathOr, toPairs, values, T } from 'ramda';
 
-import { FORMATS, SEPERATOR, TAGS, TEMPLATE, TYPE_CODES } from './config';
+import { FORMATS, SEPARATOR, TAGS, TEMPLATE, TYPE_CODES } from './config';
 
 const isInFormatList = flip(contains)(values(FORMATS));
 const validateFormat = format => isInFormatList(format);
@@ -10,8 +10,8 @@ const getTypeCode = (format, type) => pathOr('MISC', [type, format])(TYPE_CODES)
 const getEntries = compose(toPairs, omit(['type']));
 const translateTag = format => (key, value) => pair(TAGS[key][format], value);
 const concatenateEntries = format => compose(
-    join(SEPERATOR.OUTER[format]),
-    map(join(SEPERATOR.INNER[format]))
+  join(SEPARATOR.OUTER[format]),
+  map(join(SEPARATOR.INNER[format]))
 );
 
 const generateContent = (format, data) => {
