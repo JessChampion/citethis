@@ -7,4 +7,3 @@ const CiteThisVueComponent = {
 };
 
 export default CiteThisVueComponent;
-

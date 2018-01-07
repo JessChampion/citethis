@@ -1,11 +1,11 @@
 <template>
   <div class="citeThis">
     <CiteThisFormatSelector class="citeThis__selector"
-       :formats="availableFormats"
-       v-model="currentFormat"
+                            :formats="availableFormats"
+                            v-model="currentFormat"
     />
     <CiteThisButton class="citeThis__button"
-       :cite="cite"/>
+                    :cite="cite"/>
     <a class="citeThis__download"
        target="_blank"
        ref="downloadLink"

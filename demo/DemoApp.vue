@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <h2>Vue Component Demo</h2>
     <form>
       <h3>Test Record</h3>
       <div>
@@ -57,6 +56,8 @@
 
   label {
     display: inline-block;
+    margin-right: 1rem;
     min-width: 5rem;
+    text-align: right;
   }
 </style>

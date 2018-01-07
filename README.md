@@ -6,20 +6,33 @@ Demo https://jesschampion.github.io/citethis/
 ## Installation
 
 ## Usage
-### Static
+
+### Vue Component Plugin
+To use the citation plugin in your vue apps, import the plugin and install it with Vue.use.
+
+```
+import CiteThisVueComponent from '../src/CiteThisVueComponent';
+
+...
+
+Vue.use(CiteThisVueComponent);
+```
+
+### Static Citation Widget
 include 'cite-this.js' in your html document and instantiate up to 1 citation widget
 per page with the following markup.
 At this stage the element must have an id of 'citation', the type of element is not limited to divs.
+
 ```
- <div id="citation"
+<div id="citation"
     author="Example Author"
     title="Example Document"
     type="MISC"
     year="2017"/>
-```
+...
 
-### Vue component
-// TO DO
+<script type=text/javascript src=../cite-this.js></script>
+```
 
 ## Scripts
 __install dependencies__:
@@ -60,7 +73,7 @@ UI:
 - ~~Make ui nicer~~
 - ~~Use BEM for scoping on ui and styles~~
 - ~~accessibility~~
-- Flyout style picker (link for each type?) 
+- Flyout style picker (link for each type?) - **IN PROGRESS**
 - add easily overridable default styling
 - Customisable button label
 
@@ -72,8 +85,8 @@ Build and deploy
 Implementation:
 - **(Higher Priority)** Add support for all required types and fields
 - Support multiple elements per page
-- Build for Vue component use
-- Change mounting loop to check on addEvent - **IN PROGRESS**
+- ~~Build for Vue component use~~
+- ~~Change mounting loop to check on addEvent~~
 
 Tidy up:
 - **(Higher Priority)** Test coverage

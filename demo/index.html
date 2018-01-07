@@ -10,7 +10,7 @@
       font-size: 16px;
       text-align: center;
       color: #2c3e50;
-      padding: 3rem;
+      padding: 1rem 3rem;
     }
 
     .demo {
@@ -19,21 +19,47 @@
       margin: 1rem;
       padding: 1rem;
     }
+
+    h1 {
+      margin: 0 0 1rem;
+    }
+
+    h2 {
+      margin: 0.25rem 0;
+    }
+
+    h3 {
+      margin: 0.25rem 0 0.75rem;
+    }
+
+    .testRecord {
+      margin: 0 auto 1rem;
+      max-width: 14rem;
+      text-align: left;
+    }
+
+    .testRecord > span {
+      display: inline-block;
+      margin-right: 1rem;
+      min-width: 5rem;
+      text-align: right;
+    }
   </style>
 </head>
 <body>
 <h1>Cite This</h1>
 <div class="demo">
+  <h2>Vue Component Demo</h2>
   <div id="app"></div>
 </div>
 <div id="static" class="demo">
-  <h2>Static Citation Demo</h2>
+  <h2>Static Citation Widget Demo</h2>
   <h3>Test record</h3>
-  <p>
-    Author: 'static author'<br/>
-    Title='static title'<br/>
-    Type='MISC'<br/>
-    year='2017'
+  <p class="testRecord">
+    <span>Author:</span> 'static author'<br/>
+    <span>Title:</span> 'static title'<br/>
+    <span>Type:</span> 'MISC'<br/>
+    <span>year:</span> '2017'
   </p>
   <div id="citation"
        author="static author"
