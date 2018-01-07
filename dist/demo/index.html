@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>cite-this demo</title>
+  <style>
+    body {
+      font-family: 'Avenir', Helvetica, Arial, sans-serif;
+      font-size: 16px;
+      text-align: center;
+      color: #2c3e50;
+      padding: 1rem 3rem;
+    }
+
+    .demo {
+      border: 0.1rem solid rgba(44, 62, 80, 0.25);
+      border-radius: 0.25rem;
+      margin: 1rem;
+      padding: 1rem;
+    }
+
+    h1 {
+      margin: 0 0 1rem;
+    }
+
+    h2 {
+      margin: 0.25rem 0;
+    }
+
+    h3 {
+      margin: 0.25rem 0 0.75rem;
+    }
+
+    .testRecord {
+      margin: 0 auto 1rem;
+      max-width: 14rem;
+      text-align: left;
+    }
+
+    .testRecord > span {
+      display: inline-block;
+      margin-right: 1rem;
+      min-width: 5rem;
+      text-align: right;
+    }
+  </style>
+</head>
+<body>
+<h1>Cite This</h1>
+<div class="demo">
+  <h2>Vue Component Demo</h2>
+  <div id="app"></div>
+</div>
+<div id="static" class="demo">
+  <h2>Static Citation Widget Demo</h2>
+  <h3>Test record</h3>
+  <p class="testRecord">
+    <span>Author:</span> 'static author'<br/>
+    <span>Title:</span> 'static title'<br/>
+    <span>Type:</span> 'MISC'<br/>
+    <span>year:</span> '2017'
+  </p>
+  <div id="citation"
+       author="static author"
+       title="static title"
+       type="MISC"
+       year="2017"/>
+</div>
+<script type=text/javascript src=./main.js></script>
+<script type=text/javascript src=../cite-this.js></script>
+</body>
+</html>
