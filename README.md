@@ -55,7 +55,7 @@ __push dist/demo sub folder to github pages branch__:
 2. Commit changes
   `git commit -am"DEMO X.Y.Z"`
 3. Push to gh-pages branch
-  `yarn demo`
+  `yarn deploy:demo`
 4. Update version number in `package.json` and push to master
 
 ## TODOs

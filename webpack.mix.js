@@ -7,6 +7,7 @@ const SRC = {
   demo: {
     index: 'demo/index.html',
     main: 'demo/main.js',
+    plugin: 'dist/cite-this.js'
   }
 };
 
@@ -23,6 +24,7 @@ mix.js(SRC.component, DEST.dist);
 
 //Build the demo
 mix.js(SRC.demo.main, DEST.demo);
+mix.copy(SRC.demo.plugin, DEST.demo);
 mix.copy(SRC.demo.index, DEST.demo);
 
 // Custom webpack config
