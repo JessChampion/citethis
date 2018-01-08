@@ -1,11 +1,14 @@
 <template>
-  <div class="citeThis">
-    <CiteThisFormatSelector class="citeThis__selector"
-                            :formats="availableFormats"
-                            v-model="currentFormat"
-    />
+  <div class="citeThis"
+       :class="{ open: isOpen}">
     <CiteThisButton class="citeThis__button"
-                    :cite="cite"/>
+                    :toggle="open"
+                    :active="isOpen"
+    />
+    <CiteThisFormatSelector class="citeThis__flyout"
+                            :formats="availableFormats"
+                            :cite="cite"
+    />
     <a class="citeThis__download"
        target="_blank"
        ref="downloadLink"
@@ -83,11 +86,13 @@
       return {
         availableFormats: FORMATS,
         currentFormat: FORMATS.BIB,
-        href: ''
+        href: '',
+        isOpen: false
       };
     },
     methods: {
-      cite() {
+      cite(format) {
+        this.currentFormat = format;
         const providedData = {
           author: this.author,
           title: this.title,
@@ -100,22 +105,70 @@
           if (downloadLink) {
             downloadLink.click();
           }
+          this.close();
         }, 100);
+      },
+      close() {
+        this.isOpen = false;
       },
       getFileName() {
         return getDownloadFileName(this.currentFormat, this.author, this.year);
-      }
+      },
+      open() {
+        if (this.isOpen) {
+          this.close();
+          return;
+        }
+        this.isOpen = true;
+      },
     }
   };
 </script>
 
 <style>
-  .citeThis__selector {
+  .citeThis button {
+    border-radius: 0.25rem;
+    font-size: 0.9rem;
+    padding: 0.2rem 0.25rem;
+  }
+
+  .citeThis {
     display: inline-block;
     font-size: 1rem;
+    position: relative;
   }
 
   .citeThis__button {
+    display: inline-block;
+  }
+
+  .open > .citeThis__button::before {
+    /*/h-offset v-offset blur spread color*/
+    box-shadow: 0.1rem 0.05rem 0.15rem 0 rgba(0, 0, 0, 0.5);
+    content: '';
+    width: calc(100% + 0.9rem);
+    height: calc(100% + 0.8rem);
+    background: #dfdfdf;
+    border-radius: 0.25rem 0.25rem 0 0;
+    display: block;
+    position: absolute;
+    z-index: -1;
+    right: -0.45rem;
+    top: -0.4rem;
+    transition: all 1s ease;
+  }
+
+  .citeThis__flyout {
+    box-shadow: 0.1rem 0.15rem 0.15rem 0 rgba(0, 0, 0, 0.5);
+    display: none;
+    min-width: 9.25rem;
+    position: absolute;
+    right: -0.575rem;
+    top: 100%;
+    transition: all 1s ease;
+  }
+
+  .open > .citeThis__flyout {
     display: inline-block;
   }
 

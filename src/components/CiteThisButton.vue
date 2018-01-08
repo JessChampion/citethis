@@ -1,7 +1,6 @@
 <template>
-  <button class="cite"
-          @click="cite"
-  >
+  <button @click="toggle"
+          :aria-pressed="[active]">
     CITE
   </button>
 </template>
@@ -10,9 +9,13 @@
   export default {
     name: 'CiteThisButton',
     props: {
-      cite: {
+      toggle: {
         type: Function,
         default: () => null
+      },
+      active: {
+        type: Boolean,
+        default: false
       },
     }
   };

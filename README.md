@@ -73,7 +73,9 @@ UI:
 - ~~Make ui nicer~~
 - ~~Use BEM for scoping on ui and styles~~
 - ~~accessibility~~
-- Flyout style picker (link for each type?) - **IN PROGRESS**
+- Flyout style picker - **IN PROGRESS**
+    - close on click outside
+    - animate
 - add easily overridable default styling
 - Customisable button label
 
