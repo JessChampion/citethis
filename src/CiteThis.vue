@@ -1,6 +1,7 @@
 <template>
   <div class="citeThis"
        :class="{ open: isOpen}"
+
   >
     <CiteThisButton class="citeThis__button"
                     :toggle="open"
@@ -152,7 +153,6 @@
     height: calc(100% + 0.8rem);
     background: #dfdfdf;
     border-radius: 0.25rem 0.25rem 0 0;
-    display: block;
     position: absolute;
     z-index: -1;
     right: -0.45rem;
@@ -162,16 +162,18 @@
 
   .citeThis__flyout {
     box-shadow: 0.1rem 0.15rem 0.15rem 0 rgba(0, 0, 0, 0.5);
-    display: none;
+    visibility: hidden;
     min-width: 9.25rem;
     position: absolute;
     right: -0.575rem;
     top: 100%;
-    transition: all 1s ease;
+    transition: max-height 2s ease 500ms;
+    max-height: 0;
   }
 
   .open > .citeThis__flyout {
-    display: inline-block;
+    visibility: visible;
+    max-height: 4rem;
   }
 
   .citeThis__download {

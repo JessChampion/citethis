@@ -1,6 +1,7 @@
 <template>
   <button @click="onClick"
-          :aria-pressed="[active]">
+          :aria-pressed="[active]"
+  >
     CITE
   </button>
 </template>

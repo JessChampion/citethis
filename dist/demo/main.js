@@ -14086,7 +14086,7 @@ exports = module.exports = __webpack_require__(65)(false);
 
 
 // module
-exports.push([module.i, "\n.citeThis button {\n  border-radius: 0.25rem;\n  font-size: 0.9rem;\n  padding: 0.2rem 0.25rem;\n}\n.citeThis {\n  display: inline-block;\n  font-size: 1rem;\n  position: relative;\n}\n.citeThis__button {\n  cursor: pointer;\n  display: inline-block;\n}\n.open > .citeThis__button::before {\n  /*/h-offset v-offset blur spread color*/\n  box-shadow: 0.1rem 0.05rem 0.15rem 0 rgba(0, 0, 0, 0.5);\n  content: '';\n  width: calc(100% + 0.9rem);\n  height: calc(100% + 0.8rem);\n  background: #dfdfdf;\n  border-radius: 0.25rem 0.25rem 0 0;\n  display: block;\n  position: absolute;\n  z-index: -1;\n  right: -0.45rem;\n  top: -0.4rem;\n  transition: all 1s ease;\n}\n.citeThis__flyout {\n  box-shadow: 0.1rem 0.15rem 0.15rem 0 rgba(0, 0, 0, 0.5);\n  display: none;\n  min-width: 9.25rem;\n  position: absolute;\n  right: -0.575rem;\n  top: 100%;\n  transition: all 1s ease;\n}\n.open > .citeThis__flyout {\n  display: inline-block;\n}\n.citeThis__download {\n  display: none; /*hidden download link*/\n}\n", ""]);
+exports.push([module.i, "\n.citeThis button {\n  border-radius: 0.25rem;\n  font-size: 0.9rem;\n  padding: 0.2rem 0.25rem;\n}\n.citeThis {\n  display: inline-block;\n  font-size: 1rem;\n  position: relative;\n}\n.citeThis__button {\n  cursor: pointer;\n  display: inline-block;\n}\n.open > .citeThis__button::before {\n  /*/h-offset v-offset blur spread color*/\n  box-shadow: 0.1rem 0.05rem 0.15rem 0 rgba(0, 0, 0, 0.5);\n  content: '';\n  width: calc(100% + 0.9rem);\n  height: calc(100% + 0.8rem);\n  background: #dfdfdf;\n  border-radius: 0.25rem 0.25rem 0 0;\n  position: absolute;\n  z-index: -1;\n  right: -0.45rem;\n  top: -0.4rem;\n  transition: all 1s ease;\n}\n.citeThis__flyout {\n  box-shadow: 0.1rem 0.15rem 0.15rem 0 rgba(0, 0, 0, 0.5);\n  visibility: hidden;\n  min-width: 9.25rem;\n  position: absolute;\n  right: -0.575rem;\n  top: 100%;\n  transition: max-height 2s ease 500ms;\n  max-height: 0;\n}\n.open > .citeThis__flyout {\n  visibility: visible;\n  max-height: 4rem;\n}\n.citeThis__download {\n  display: none; /*hidden download link*/\n}\n", ""]);
 
 // exports
 
@@ -14137,6 +14137,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_CiteThisFormatSelector__ = __webpack_require__(332);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__components_CiteThisFormatSelector___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3__components_CiteThisFormatSelector__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__citer_CreateCitation__ = __webpack_require__(337);
+//
 //
 //
 //
@@ -14329,6 +14330,7 @@ module.exports = Component.exports
 
 "use strict";
 Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
 //
 //
 //
