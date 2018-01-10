@@ -14158,6 +14158,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -14340,14 +14341,27 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
   name: 'CiteThisButton',
   props: {
     toggle: {
-      type: Function,
-      default: function _default() {
-        return null;
-      }
+      required: true,
+      type: Function
     },
     active: {
       type: Boolean,
       default: false
+    }
+  },
+  methods: {
+    onBodyClick: function onBodyClick() {
+      this.toggle();
+      document.body.removeEventListener('mouseup', this.onBodyClick);
+      this.$el.parentElement.removeEventListener('mouseup', this.onClickInsideParent);
+    },
+    onClick: function onClick() {
+      this.toggle();
+      document.body.addEventListener('mouseup', this.onBodyClick);
+      this.$el.parentElement.addEventListener('mouseup', this.onClickInsideParent);
+    },
+    onClickInsideParent: function onClickInsideParent(event) {
+      event.stopPropagation();
     }
   }
 });
@@ -14362,7 +14376,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "button",
-    { attrs: { "aria-pressed": [_vm.active] }, on: { click: _vm.toggle } },
+    { attrs: { "aria-pressed": [_vm.active] }, on: { click: _vm.onClick } },
     [_vm._v("\n  CITE\n")]
   )
 }
