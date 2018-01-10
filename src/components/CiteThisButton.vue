@@ -1,5 +1,5 @@
 <template>
-  <button @click="toggle"
+  <button @click="onClick"
           :aria-pressed="[active]">
     CITE
   </button>
@@ -10,13 +10,28 @@
     name: 'CiteThisButton',
     props: {
       toggle: {
-        type: Function,
-        default: () => null
+        required: true,
+        type: Function
       },
       active: {
         type: Boolean,
         default: false
       },
+    },
+    methods: {
+      onBodyClick() {
+        this.toggle();
+        document.body.removeEventListener('mouseup', this.onBodyClick);
+        this.$el.parentElement.removeEventListener('mouseup', this.onClickInsideParent);
+      },
+      onClick() {
+        this.toggle();
+        document.body.addEventListener('mouseup', this.onBodyClick);
+        this.$el.parentElement.addEventListener('mouseup', this.onClickInsideParent);
+      },
+      onClickInsideParent(event) {
+        event.stopPropagation();
+      }
     }
   };
 </script>

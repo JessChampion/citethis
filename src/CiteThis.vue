@@ -1,6 +1,7 @@
 <template>
   <div class="citeThis"
-       :class="{ open: isOpen}">
+       :class="{ open: isOpen}"
+  >
     <CiteThisButton class="citeThis__button"
                     :toggle="open"
                     :active="isOpen"

@@ -9,7 +9,7 @@
               :key="format"
               @click="cite(format)"
       >
-        {{format}}
+        {{ format }}
       </button>
     </div>
   </fieldset>
