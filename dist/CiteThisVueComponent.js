@@ -14338,7 +14338,6 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.close();
     },
     onClick: function onClick() {
-      console.log(this.active);
       if (this.active) {
         this.close();
         return;
@@ -14346,6 +14345,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
       this.open();
     },
     onClickInsideParent: function onClickInsideParent(event) {
+      // prevent closing flyout on click inside component
       event.stopPropagation();
     }
   }

@@ -33,7 +33,6 @@
         this.close();
       },
       onClick() {
-        console.log(this.active);
         if (this.active) {
           this.close();
           return;
@@ -41,6 +40,7 @@
         this.open();
       },
       onClickInsideParent(event) {
+        // prevent closing flyout on click inside component
         event.stopPropagation();
       }
     }
