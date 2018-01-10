@@ -1,13 +1,12 @@
 <template>
   <div class="citeThis"
-       :class="{ open: isOpen}"
-
+       :class="[{ open: isOpen }, transition]"
   >
     <CiteThisButton class="citeThis__button"
                     :toggle="open"
                     :active="isOpen"
     />
-    <CiteThisFormatSelector class="citeThis__flyout"
+    <CiteThisFormatSelector class="citeThis__flyout formatSelector"
                             :formats="availableFormats"
                             :cite="cite"
     />
@@ -28,6 +27,8 @@
   import CiteThisButton from './components/CiteThisButton';
   import CiteThisFormatSelector from './components/CiteThisFormatSelector';
   import createCitation from './citer/CreateCitation';
+
+  const TRANSITION_DELAY = 1000;
 
   const listKeys = compose(join(', '), keys);
   const validateType = (value) => {
@@ -89,7 +90,8 @@
         availableFormats: FORMATS,
         currentFormat: FORMATS.BIB,
         href: '',
-        isOpen: false
+        isOpen: false,
+        transition: ''
       };
     },
     methods: {
@@ -110,8 +112,13 @@
           this.close();
         }, 100);
       },
+      clearTransition() {
+        this.transition = '';
+      },
       close() {
         this.isOpen = false;
+        this.transition = 'closing';
+        setTimeout(this.clearTransition, TRANSITION_DELAY);
       },
       getFileName() {
         return getDownloadFileName(this.currentFormat, this.author, this.year);
@@ -122,6 +129,9 @@
           return;
         }
         this.isOpen = true;
+        this.transition = 'opening';
+        console.log(this.transition);
+        setTimeout(this.clearTransition, TRANSITION_DELAY);
       },
     }
   };
@@ -146,35 +156,29 @@
   }
 
   .open > .citeThis__button::before {
-    /*/h-offset v-offset blur spread color*/
-    box-shadow: 0.1rem 0.05rem 0.15rem 0 rgba(0, 0, 0, 0.5);
-    content: '';
-    width: calc(100% + 0.9rem);
-    height: calc(100% + 0.8rem);
     background: #dfdfdf;
     border-radius: 0.25rem 0.25rem 0 0;
+    box-shadow: 0.1rem 0.05rem 0.15rem 0 rgba(0, 0, 0, 0.5);
+    content: '';
+    height: calc(100% + 0.8rem);
     position: absolute;
-    z-index: -1;
     right: -0.45rem;
     top: -0.4rem;
-    transition: all 1s ease;
+    width: calc(100% + 0.9rem);
+    z-index: -1;
   }
 
   .citeThis__flyout {
-    box-shadow: 0.1rem 0.15rem 0.15rem 0 rgba(0, 0, 0, 0.5);
-    visibility: hidden;
-    min-width: 9.25rem;
-    position: absolute;
-    right: -0.575rem;
-    top: 100%;
-    transition: max-height 2s ease 500ms;
     max-height: 0;
+    position: absolute;
+    right: -0.7rem;
+    top: calc(100% - 0.28rem);
+    visibility: hidden;
   }
 
   .open > .citeThis__flyout {
-    visibility: visible;
     max-height: 4rem;
-  }
+    visibility: visible;}
 
   .citeThis__download {
     display: none; /*hidden download link*/

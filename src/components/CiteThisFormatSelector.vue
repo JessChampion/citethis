@@ -1,18 +1,20 @@
 <template>
-  <fieldset class="formatSelector">
-    <legend class="formatSelector__title">
-      Select citation file format
-    </legend>
-    <div class="formatSelector__buttons">
-      <button class="formatSelector__button"
-              v-for="format in formats"
-              :key="format"
-              @click="cite(format)"
-      >
-        {{ format }}
-      </button>
-    </div>
-  </fieldset>
+  <div>
+    <fieldset class="formatSelector__wrap">
+      <legend class="formatSelector__title">
+        Select citation file format
+      </legend>
+      <div class="formatSelector__buttons">
+        <button class="formatSelector__button"
+                v-for="format in formats"
+                :key="format"
+                @click="cite(format)"
+        >
+          {{ format }}
+        </button>
+      </div>
+    </fieldset>
+  </div>
 </template>
 
 <script>
@@ -32,13 +34,19 @@
 </script>
 
 <style>
-  .formatSelector {
+  .formatSelector{
+    padding: 0 0.25rem 0.5rem;
+  }
+
+  .formatSelector__wrap {
     background: #dfdfdf;
     border: none;
     border-radius: 0.25rem 0 0.25rem 0.25rem;
-    margin-top: -0.3rem; /*counteract padding*/
+    box-shadow: 0.1rem 0.15rem 0.15rem 0 rgba(0, 0, 0, 0.5);
+    margin: 0;
     padding: 1.2rem 0.6rem 0.45rem;
     text-align: left;
+    width: 9.5rem;
   }
 
   .formatSelector__title {
