@@ -14060,7 +14060,7 @@ exports = module.exports = __webpack_require__(65)(false);
 
 
 // module
-exports.push([module.i, "\n.citeThis button {\n  border-radius: 0.25rem;\n  font-size: 0.9rem;\n  padding: 0.2rem 0.25rem;\n}\n.citeThis {\n  display: inline-block;\n  font-size: 1rem;\n  position: relative;\n}\n.citeThis__button {\n  display: inline-block;\n}\n.open > .citeThis__button::before {\n  /*/h-offset v-offset blur spread color*/\n  box-shadow: 0.1rem 0.05rem 0.15rem 0 rgba(0, 0, 0, 0.5);\n  content: '';\n  width: calc(100% + 0.9rem);\n  height: calc(100% + 0.8rem);\n  background: #dfdfdf;\n  border-radius: 0.25rem 0.25rem 0 0;\n  display: block;\n  position: absolute;\n  z-index: -1;\n  right: -0.45rem;\n  top: -0.4rem;\n  transition: all 1s ease;\n}\n.citeThis__flyout {\n  box-shadow: 0.1rem 0.15rem 0.15rem 0 rgba(0, 0, 0, 0.5);\n  display: none;\n  min-width: 9.25rem;\n  position: absolute;\n  right: -0.575rem;\n  top: 100%;\n  transition: all 1s ease;\n}\n.open > .citeThis__flyout {\n  display: inline-block;\n}\n.citeThis__download {\n  display: none; /*hidden download link*/\n}\n", ""]);
+exports.push([module.i, "\n.citeThis button {\n  border-radius: 0.25rem;\n  font-size: 0.9rem;\n  padding: 0.2rem 0.25rem;\n}\n.citeThis {\n  display: inline-block;\n  font-size: 1rem;\n  position: relative;\n}\n.citeThis__button {\n  cursor: pointer;\n  display: inline-block;\n}\n.open > .citeThis__button::before {\n  /*/h-offset v-offset blur spread color*/\n  box-shadow: 0.1rem 0.05rem 0.15rem 0 rgba(0, 0, 0, 0.5);\n  content: '';\n  width: calc(100% + 0.9rem);\n  height: calc(100% + 0.8rem);\n  background: #dfdfdf;\n  border-radius: 0.25rem 0.25rem 0 0;\n  display: block;\n  position: absolute;\n  z-index: -1;\n  right: -0.45rem;\n  top: -0.4rem;\n  transition: all 1s ease;\n}\n.citeThis__flyout {\n  box-shadow: 0.1rem 0.15rem 0.15rem 0 rgba(0, 0, 0, 0.5);\n  display: none;\n  min-width: 9.25rem;\n  position: absolute;\n  right: -0.575rem;\n  top: 100%;\n  transition: all 1s ease;\n}\n.open > .citeThis__flyout {\n  display: inline-block;\n}\n.citeThis__download {\n  display: none; /*hidden download link*/\n}\n", ""]);
 
 // exports
 
@@ -14324,15 +14324,26 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     }
   },
   methods: {
-    onBodyClick: function onBodyClick() {
+    close: function close() {
       this.toggle();
       document.body.removeEventListener('mouseup', this.onBodyClick);
       this.$el.parentElement.removeEventListener('mouseup', this.onClickInsideParent);
     },
-    onClick: function onClick() {
+    open: function open() {
       this.toggle();
       document.body.addEventListener('mouseup', this.onBodyClick);
       this.$el.parentElement.addEventListener('mouseup', this.onClickInsideParent);
+    },
+    onBodyClick: function onBodyClick() {
+      this.close();
+    },
+    onClick: function onClick() {
+      console.log(this.active);
+      if (this.active) {
+        this.close();
+        return;
+      }
+      this.open();
     },
     onClickInsideParent: function onClickInsideParent(event) {
       event.stopPropagation();
@@ -14450,7 +14461,7 @@ exports = module.exports = __webpack_require__(65)(false);
 
 
 // module
-exports.push([module.i, "\n.formatSelector {\n  background: #dfdfdf;\n  border: none;\n  border-radius: 0.25rem 0 0.25rem 0.25rem;\n  margin-top: -0.3rem; /*counteract padding*/\n  padding: 0.9rem 0.6rem 0.45rem;\n  text-align: left;\n}\n.formatSelector__title {\n  font-size: 0.8rem;\n  position: relative;\n  top: 0.75rem;\n}\n.formatSelector__buttons {\n  text-align: center;\n}\n.formatSelector__button {\n  font-size: 0.8rem;\n  margin-right: 0.25rem;\n  min-width: 2.5rem;\n}\n", ""]);
+exports.push([module.i, "\n.formatSelector {\n  background: #dfdfdf;\n  border: none;\n  border-radius: 0.25rem 0 0.25rem 0.25rem;\n  margin-top: -0.3rem; /*counteract padding*/\n  padding: 1.2rem 0.6rem 0.45rem;\n  text-align: left;\n}\n.formatSelector__title {\n  cursor: default;\n  font-size: 0.8rem;\n  position: relative;\n  top: 1rem;\n}\n.formatSelector__buttons {\n  text-align: center;\n}\n.formatSelector__button {\n  cursor: pointer;\n  font-size: 0.8rem;\n  margin-right: 0.25rem;\n  min-width: 2.5rem;\n}\n", ""]);
 
 // exports
 

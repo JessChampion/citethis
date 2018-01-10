@@ -37,14 +37,15 @@
     border: none;
     border-radius: 0.25rem 0 0.25rem 0.25rem;
     margin-top: -0.3rem; /*counteract padding*/
-    padding: 0.9rem 0.6rem 0.45rem;
+    padding: 1.2rem 0.6rem 0.45rem;
     text-align: left;
   }
 
   .formatSelector__title {
+    cursor: default;
     font-size: 0.8rem;
     position: relative;
-    top: 0.75rem;
+    top: 1rem;
   }
 
   .formatSelector__buttons {
@@ -52,6 +53,7 @@
   }
 
   .formatSelector__button {
+    cursor: pointer;
     font-size: 0.8rem;
     margin-right: 0.25rem;
     min-width: 2.5rem;

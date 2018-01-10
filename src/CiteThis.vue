@@ -140,6 +140,7 @@
   }
 
   .citeThis__button {
+    cursor: pointer;
     display: inline-block;
   }
 
