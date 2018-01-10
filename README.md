@@ -73,10 +73,10 @@ UI:
 - ~~Make ui nicer~~
 - ~~Use BEM for scoping on ui and styles~~
 - ~~accessibility~~
-- Flyout style picker - **IN PROGRESS**
-    - animate
-- add easily overridable default styling
-- Customisable button label
+- ~~Flyout style picker~~
+- Flyout animation
+- ~~Add easily overridable default styling~~
+- Customisable button label - **IN PROGRESS**
 
 Build and deploy
 - ~~Separate component from demo app~~
