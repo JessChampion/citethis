@@ -15,7 +15,7 @@ const observerConfig = {
 
 const hasElement = () => !!document.getElementById(ID);
 const getAttributePairs = converge(objOf, [prop('nodeName'), prop('nodeValue')]);
-const filterAcceptedAttributes = pick(VALID_TAGS);
+const filterAcceptedAttributes = pick([...VALID_TAGS, 'label']);
 const getRootAttributes = compose(filterAcceptedAttributes, mergeAll, map(getAttributePairs));
 // eslint-disable-next-line no-new
 const createApp = () => new Vue({
@@ -29,6 +29,7 @@ const createApp = () => new Vue({
     return createElement('CiteThis', { attrs: attributes });
   }
 });
+
 const mount = () => {
   if (hasElement()) {
     createApp();
@@ -40,6 +41,7 @@ const mount = () => {
 const onMutation = (mutations, observer) => {
   if (mount()) observer.disconnect();
 };
+
 const createObserver = () => new MutationObserver(onMutation);
 
 const loadCiteThis = () => {

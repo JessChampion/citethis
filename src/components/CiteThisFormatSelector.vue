@@ -20,6 +20,7 @@
 <script>
   export default {
     name: 'CiteThisFormatSelector',
+
     props: {
       cite: {
         type: Function,
@@ -34,7 +35,7 @@
 </script>
 
 <style>
-  .formatSelector{
+  .formatSelector {
     padding: 0 0.25rem 0.5rem;
   }
 

@@ -1,3 +1,5 @@
+// Static configuration details for the various file types
+
 // FORMATS
 const BIB = 'BIB';
 const ENW = 'ENW';

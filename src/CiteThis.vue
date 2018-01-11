@@ -3,8 +3,9 @@
        :class="[{ open: isOpen }, transition]"
   >
     <CiteThisButton class="citeThis__button"
-                    :toggle="open"
                     :active="isOpen"
+                    :label="label"
+                    :toggle="open"
     />
     <CiteThisFormatSelector class="citeThis__flyout formatSelector"
                             :formats="availableFormats"
@@ -40,6 +41,7 @@
     }
     return valid;
   };
+
   const validateYear = (year) => {
     const y = parseInt(`${year}`, 10);
     const valid = (!Number.isNaN(y) && y > 0);
@@ -61,11 +63,17 @@
 
   export default {
     name: 'CiteThis',
+
     components: {
       CiteThisButton,
       CiteThisFormatSelector
     },
+
     props: {
+      label: {
+        type: String,
+        default: 'CITE'
+      },
       author: {
         type: String,
         default: null
@@ -85,6 +93,7 @@
         validator: validateYear
       }
     },
+
     data() {
       return {
         availableFormats: FORMATS,
@@ -94,6 +103,7 @@
         transition: ''
       };
     },
+
     methods: {
       cite(format) {
         this.currentFormat = format;
@@ -112,17 +122,21 @@
           this.close();
         }, 100);
       },
+
       clearTransition() {
         this.transition = '';
       },
+
       close() {
         this.isOpen = false;
         this.transition = 'closing';
         setTimeout(this.clearTransition, TRANSITION_DELAY);
       },
+
       getFileName() {
         return getDownloadFileName(this.currentFormat, this.author, this.year);
       },
+
       open() {
         if (this.isOpen) {
           this.close();
@@ -130,9 +144,8 @@
         }
         this.isOpen = true;
         this.transition = 'opening';
-        console.log(this.transition);
         setTimeout(this.clearTransition, TRANSITION_DELAY);
-      },
+      }
     }
   };
 </script>
@@ -178,7 +191,8 @@
 
   .open > .citeThis__flyout {
     max-height: 4rem;
-    visibility: visible;}
+    visibility: visible;
+  }
 
   .citeThis__download {
     display: none; /*hidden download link*/

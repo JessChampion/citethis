@@ -25,6 +25,7 @@ At this stage the element must have an id of 'citation', the type of element is 
 
 ```
 <div id="citation"
+    label="CITE THIS"
     author="Example Author"
     title="Example Document"
     type="MISC"
@@ -33,6 +34,18 @@ At this stage the element must have an id of 'citation', the type of element is 
 
 <script type=text/javascript src=../cite-this.js></script>
 ```
+
+### Customising button text
+Custom button text can be added by including
+```
+label="CITE THIS"
+```
+as an attribute on the static widget
+or binding
+```
+:label="'CITE THIS'"
+```
+on the Vue component 
 
 ## Scripts
 __install dependencies__:
@@ -76,7 +89,7 @@ UI:
 - ~~Flyout style picker~~
 - Flyout animation
 - ~~Add easily overridable default styling~~
-- Customisable button label - **IN PROGRESS**
+- ~~Customisable button label~~ - **IN PROGRESS**
 
 Build and deploy
 - ~~Separate component from demo app~~
@@ -92,4 +105,4 @@ Implementation:
 Tidy up:
 - **(Higher Priority)** Test coverage
 - Hidden link for downloads (is there a nicer way to do this that won't require timeout)
-
+- Compile styles with sass or postcss then tidy
