@@ -44,30 +44,39 @@
       min-width: 5rem;
       text-align: right;
     }
+
+    .gh-link {
+      display: inline-block;
+      text-align: right;
+      width: calc(100% - 2rem);
+    }
   </style>
 </head>
-<body>
-<h1>Cite This</h1>
-<div class="demo">
-  <h2>Vue Component Demo</h2>
-  <div id="app"></div>
-</div>
-<div id="static" class="demo">
-  <h2>Static Citation Widget Demo</h2>
-  <h3>Test record</h3>
-  <p class="testRecord">
-    <span>Author:</span> 'static author'<br/>
-    <span>Title:</span> 'static title'<br/>
-    <span>Type:</span> 'MISC'<br/>
-    <span>year:</span> '2017'
-  </p>
-  <div id="citation"
-       author="static author"
-       title="static title"
-       type="MISC"
-       year="2017"/>
-</div>
-<script type=text/javascript src=./main.js></script>
-<script type=text/javascript src=./cite-this.js></script>
-</body>
+  <body>
+  <h1>Cite This</h1>
+  <a class='gh-link' href="https://github.com/JessChampion/citethis">View on GitHub</a>
+
+  <div class="demo">
+    <h2>Vue Component Demo</h2>
+    <div id="app"></div>
+  </div>
+  <div id="static" class="demo">
+    <h2>Static Citation Widget Demo</h2>
+    <h3>Test record</h3>
+    <p class="testRecord">
+      <span>Author:</span> 'static author'<br/>
+      <span>Title:</span> 'static title'<br/>
+      <span>Type:</span> 'MISC'<br/>
+      <span>year:</span> '2017'
+    </p>
+    <div id="citation"
+         label="CITE THIS"
+         author="static author"
+         title="static title2"
+         type="MISC"
+         year="2017"/>
+  </div>
+  <script type=text/javascript src=./main.js></script>
+  <script type=text/javascript src=./cite-this.js></script>
+  </body>
 </html>
