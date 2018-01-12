@@ -14007,7 +14007,6 @@ var Component = normalizeComponent(
   __vue_module_identifier__
 )
 Component.options.__file = "src/CiteThis.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -14019,7 +14018,7 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-7c10930e", Component.options)
   } else {
     hotAPI.reload("data-v-7c10930e", Component.options)
-' + '  }
+  }
   module.hot.dispose(function (data) {
     disposed = true
   })
@@ -14039,13 +14038,13 @@ var content = __webpack_require__(326);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(66)("6e469c94", content, false);
+var update = __webpack_require__(66)("3a89a168", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7c10930e\",\"scoped\":false,\"hasInlineConfig\":true}!../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./CiteThis.vue", function() {
-     var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7c10930e\",\"scoped\":false,\"hasInlineConfig\":true}!../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./CiteThis.vue");
+   module.hot.accept("!!../node_modules/css-loader/index.js!../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7c10930e\",\"scoped\":false,\"hasInlineConfig\":true}!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CiteThis.vue", function() {
+     var newContent = require("!!../node_modules/css-loader/index.js!../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-7c10930e\",\"scoped\":false,\"hasInlineConfig\":true}!../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CiteThis.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -14058,12 +14057,12 @@ if(false) {
 /* 326 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(65)(undefined);
+exports = module.exports = __webpack_require__(65)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n.citeThis button {\n  border-radius: 0.25rem;\n  font-size: 0.9rem;\n  padding: 0.2rem 0.25rem;\n}\n.citeThis {\n  display: inline-block;\n  font-size: 1rem;\n  position: relative;\n}\n.citeThis__button {\n  cursor: pointer;\n  display: inline-block;\n}\n.open > .citeThis__button::before {\n  background: #dfdfdf;\n  border-radius: 0.25rem 0.25rem 0 0;\n  box-shadow: 0.1rem 0.05rem 0.15rem 0 rgba(0, 0, 0, 0.5);\n  content: '';\n  height: calc(100% + 0.8rem);\n  position: absolute;\n  right: -0.45rem;\n  top: -0.4rem;\n  width: calc(100% + 0.9rem);\n  z-index: -1;\n}\n.citeThis__flyout {\n  max-height: 0;\n  position: absolute;\n  right: -0.7rem;\n  top: calc(100% - 0.28rem);\n  visibility: hidden;\n}\n.open > .citeThis__flyout {\n  max-height: 4rem;\n  visibility: visible;\n}\n.citeThis__download {\n  display: none; /*hidden download link*/\n}\n", ""]);
+exports.push([module.i, "\n.citeThis button {\n  border-radius: 0.25rem;\n  font-size: 0.9rem;\n  outline-offset: -0.1rem;\n  padding: 0.2rem 0.25rem;\n}\n.citeThis {\n  display: inline-block;\n  font-size: 1rem;\n  position: relative;\n}\n.citeThis__button {\n  cursor: pointer;\n  display: inline-block;\n}\n.citeThis__button::before {\n  opacity: 0;\n}\n.flyoutOpen .citeThis__button::before,\n.flyoutOpening .citeThis__button::before,\n.flyoutClosing .citeThis__button::before {\n  background: #dfdfdf;\n  border-radius: 0.25rem 0.25rem 0 0;\n  box-shadow: 0.1rem 0.05rem 0.15rem 0 rgba(0, 0, 0, 0.30);\n  content: '';\n  height: calc(100% + 0.8rem);\n  opacity: 1;\n  position: absolute;\n  right: -0.45rem;\n  transition: opacity 75ms ease-in;\n  top: -0.4rem;\n  width: calc(100% + 0.9rem);\n  z-index: -1;\n}\n.flyoutClosing .citeThis__button::before {\n  border-radius: 0.25rem;\n  opacity: 0;\n  transition: opacity 75ms ease-out 325ms,\n  border-radius 25ms ease-out 325ms;\n}\n.flyout {\n  background: #dfdfdf;\n  border-radius: 0.25rem 0 0.25rem 0.25rem;\n  box-shadow: 0.1rem 0.15rem 0.15rem 0 rgba(0, 0, 0, 0.30);\n  max-height: 0;\n  max-width: calc(100% + 0.9rem);\n  opacity: 0;\n  overflow: hidden;\n  position: absolute;\n  right: -0.45rem;\n  top: calc(100% + 0.28rem);\n  visibility: hidden;\n}\n.flyoutOpen .flyout,\n.flyoutOpening .flyout {\n  visibility: visible;\n  opacity: 1;\n  max-height: 250%; /*2.5 x the button*/\n  max-width: 11rem;\n}\n.flyoutOpening .flyout {\n  transition: opacity 50ms ease-in 75ms,\n  max-height 100ms ease 50ms,\n  max-width 225ms ease 150ms;\n}\n.flyoutClosing .flyout {\n  visibility: visible;\n  max-height: 0;\n  max-width: calc(100% + 0.9rem);\n  transition: max-width 255ms ease,\n  max-height 100ms ease 200ms,\n  opacity 50ms ease-out 275ms;\n}\n.citeThis__download {\n  display: none; /*hidden download link*/\n}\n", ""]);
 
 // exports
 
@@ -14137,6 +14136,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
 
 
 
@@ -14145,7 +14145,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 
-var TRANSITION_DELAY = 1000;
+var TRANSITION_DELAY = 600;
 
 var listKeys = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["b" /* compose */])(Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["g" /* join */])(', '), __WEBPACK_IMPORTED_MODULE_0_ramda__["h" /* keys */]);
 var validateType = function validateType(value) {
@@ -14255,7 +14255,7 @@ var createDownloadHref = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["b" /* compo
     },
     close: function close() {
       this.isOpen = false;
-      this.transition = 'closing';
+      this.transition = 'flyoutClosing';
       setTimeout(this.clearTransition, TRANSITION_DELAY);
     },
     getFileName: function getFileName() {
@@ -14267,7 +14267,7 @@ var createDownloadHref = Object(__WEBPACK_IMPORTED_MODULE_0_ramda__["b" /* compo
         return;
       }
       this.isOpen = true;
-      this.transition = 'opening';
+      this.transition = 'flyoutOpening';
       setTimeout(this.clearTransition, TRANSITION_DELAY);
     }
   }
@@ -14300,7 +14300,6 @@ var Component = normalizeComponent(
   __vue_module_identifier__
 )
 Component.options.__file = "src/components/CiteThisButton.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -14312,7 +14311,7 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-70eeea52", Component.options)
   } else {
     hotAPI.reload("data-v-70eeea52", Component.options)
-' + '  }
+  }
   module.hot.dispose(function (data) {
     disposed = true
   })
@@ -14437,7 +14436,6 @@ var Component = normalizeComponent(
   __vue_module_identifier__
 )
 Component.options.__file = "src/components/CiteThisFormatSelector.vue"
-if (Component.esModule && Object.keys(Component.esModule).some(function (key) {  return key !== "default" && key.substr(0, 2) !== "__"})) {  console.error("named exports are not supported in *.vue files.")}
 
 /* hot reload */
 if (false) {(function () {
@@ -14449,7 +14447,7 @@ if (false) {(function () {
     hotAPI.createRecord("data-v-31f024ca", Component.options)
   } else {
     hotAPI.reload("data-v-31f024ca", Component.options)
-' + '  }
+  }
   module.hot.dispose(function (data) {
     disposed = true
   })
@@ -14469,13 +14467,13 @@ var content = __webpack_require__(334);
 if(typeof content === 'string') content = [[module.i, content, '']];
 if(content.locals) module.exports = content.locals;
 // add the styles to the DOM
-var update = __webpack_require__(66)("13aabbd6", content, false);
+var update = __webpack_require__(66)("358678e6", content, false);
 // Hot Module Replacement
 if(false) {
  // When the styles change, update the <style> tags
  if(!content.locals) {
-   module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-31f024ca\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./CiteThisFormatSelector.vue", function() {
-     var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-31f024ca\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0&bustCache!./CiteThisFormatSelector.vue");
+   module.hot.accept("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-31f024ca\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CiteThisFormatSelector.vue", function() {
+     var newContent = require("!!../../node_modules/css-loader/index.js!../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-31f024ca\",\"scoped\":false,\"hasInlineConfig\":true}!../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./CiteThisFormatSelector.vue");
      if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
      update(newContent);
    });
@@ -14488,12 +14486,12 @@ if(false) {
 /* 334 */
 /***/ (function(module, exports, __webpack_require__) {
 
-exports = module.exports = __webpack_require__(65)(undefined);
+exports = module.exports = __webpack_require__(65)(false);
 // imports
 
 
 // module
-exports.push([module.i, "\n.formatSelector {\n  padding: 0 0.25rem 0.5rem;\n}\n.formatSelector__wrap {\n  background: #dfdfdf;\n  border: none;\n  border-radius: 0.25rem 0 0.25rem 0.25rem;\n  box-shadow: 0.1rem 0.15rem 0.15rem 0 rgba(0, 0, 0, 0.5);\n  margin: 0;\n  padding: 1.2rem 0.6rem 0.45rem;\n  text-align: left;\n  width: 9.5rem;\n}\n.formatSelector__title {\n  cursor: default;\n  font-size: 0.8rem;\n  position: relative;\n  top: 1rem;\n}\n.formatSelector__buttons {\n  text-align: center;\n}\n.formatSelector__button {\n  cursor: pointer;\n  font-size: 0.8rem;\n  margin-right: 0.25rem;\n  min-width: 2.5rem;\n}\n", ""]);
+exports.push([module.i, "\n.formatSelector {\n  border: none;\n  margin: 0;\n  padding: 0.75rem 0.6rem 0.45rem;\n  text-align: left;\n  width: 9.5rem;\n}\n.formatSelector__title {\n  cursor: default;\n  font-size: 0.8rem;\n  position: relative;\n  top: 0.5rem;\n}\n.formatSelector__buttons {\n  text-align: center;\n}\n.formatSelector__button {\n  cursor: pointer;\n  font-size: 0.8rem;\n  margin-right: 0.25rem;\n  min-width: 2.5rem;\n}\n", ""]);
 
 // exports
 
@@ -14521,12 +14519,9 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   name: 'CiteThisFormatSelector',
-
   props: {
     cite: {
       type: Function,
@@ -14547,32 +14542,30 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", [
-    _c("fieldset", { staticClass: "formatSelector__wrap" }, [
-      _c("legend", { staticClass: "formatSelector__title" }, [
-        _vm._v("\n      Select citation file format\n    ")
-      ]),
-      _vm._v(" "),
-      _c(
-        "div",
-        { staticClass: "formatSelector__buttons" },
-        _vm._l(_vm.formats, function(format) {
-          return _c(
-            "button",
-            {
-              key: format,
-              staticClass: "formatSelector__button",
-              on: {
-                click: function($event) {
-                  _vm.cite(format)
-                }
+  return _c("fieldset", { staticClass: "formatSelector" }, [
+    _c("legend", { staticClass: "formatSelector__title" }, [
+      _vm._v("\n    Select citation file format\n  ")
+    ]),
+    _vm._v(" "),
+    _c(
+      "div",
+      { staticClass: "formatSelector__buttons" },
+      _vm._l(_vm.formats, function(format) {
+        return _c(
+          "button",
+          {
+            key: format,
+            staticClass: "formatSelector__button",
+            on: {
+              click: function($event) {
+                _vm.cite(format)
               }
-            },
-            [_vm._v("\n        " + _vm._s(format) + "\n      ")]
-          )
-        })
-      )
-    ])
+            }
+          },
+          [_vm._v("\n      " + _vm._s(format) + "\n    ")]
+        )
+      })
+    )
   ])
 }
 var staticRenderFns = []
@@ -14649,17 +14642,27 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c(
     "div",
-    { staticClass: "citeThis", class: [{ open: _vm.isOpen }, _vm.transition] },
+    {
+      staticClass: "citeThis",
+      class: [{ flyoutOpen: _vm.isOpen }, _vm.transition]
+    },
     [
       _c("CiteThisButton", {
         staticClass: "citeThis__button",
         attrs: { active: _vm.isOpen, label: _vm.label, toggle: _vm.open }
       }),
       _vm._v(" "),
-      _c("CiteThisFormatSelector", {
-        staticClass: "citeThis__flyout formatSelector",
-        attrs: { formats: _vm.availableFormats, cite: _vm.cite }
-      }),
+      _c(
+        "div",
+        { staticClass: "citeThis__flyout flyout" },
+        [
+          _c("CiteThisFormatSelector", {
+            staticClass: "formatSelector",
+            attrs: { formats: _vm.availableFormats, cite: _vm.cite }
+          })
+        ],
+        1
+      ),
       _vm._v(" "),
       _c(
         "a",

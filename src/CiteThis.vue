@@ -1,16 +1,17 @@
 <template>
   <div class="citeThis"
-       :class="[{ open: isOpen }, transition]"
+       :class="[{ flyoutOpen: isOpen }, transition]"
   >
     <CiteThisButton class="citeThis__button"
                     :active="isOpen"
                     :label="label"
                     :toggle="open"
     />
-    <CiteThisFormatSelector class="citeThis__flyout formatSelector"
-                            :formats="availableFormats"
-                            :cite="cite"
-    />
+    <div class="citeThis__flyout flyout">
+      <CiteThisFormatSelector class="formatSelector"
+                              :formats="availableFormats"
+                              :cite="cite"/>
+    </div>
     <a class="citeThis__download"
        target="_blank"
        ref="downloadLink"
@@ -29,7 +30,7 @@
   import CiteThisFormatSelector from './components/CiteThisFormatSelector';
   import createCitation from './citer/CreateCitation';
 
-  const TRANSITION_DELAY = 1000;
+  const TRANSITION_DELAY = 600;
 
   const listKeys = compose(join(', '), keys);
   const validateType = (value) => {
@@ -129,7 +130,7 @@
 
       close() {
         this.isOpen = false;
-        this.transition = 'closing';
+        this.transition = 'flyoutClosing';
         setTimeout(this.clearTransition, TRANSITION_DELAY);
       },
 
@@ -143,7 +144,7 @@
           return;
         }
         this.isOpen = true;
-        this.transition = 'opening';
+        this.transition = 'flyoutOpening';
         setTimeout(this.clearTransition, TRANSITION_DELAY);
       }
     }
@@ -154,6 +155,7 @@
   .citeThis button {
     border-radius: 0.25rem;
     font-size: 0.9rem;
+    outline-offset: -0.1rem;
     padding: 0.2rem 0.25rem;
   }
 
@@ -168,30 +170,69 @@
     display: inline-block;
   }
 
-  .open > .citeThis__button::before {
+  .citeThis__button::before {
+    opacity: 0;
+  }
+
+  .flyoutOpen .citeThis__button::before,
+  .flyoutOpening .citeThis__button::before,
+  .flyoutClosing .citeThis__button::before {
     background: #dfdfdf;
     border-radius: 0.25rem 0.25rem 0 0;
-    box-shadow: 0.1rem 0.05rem 0.15rem 0 rgba(0, 0, 0, 0.5);
+    box-shadow: 0.1rem 0.05rem 0.15rem 0 rgba(0, 0, 0, 0.30);
     content: '';
     height: calc(100% + 0.8rem);
+    opacity: 1;
     position: absolute;
     right: -0.45rem;
+    transition: opacity 75ms ease-in;
     top: -0.4rem;
     width: calc(100% + 0.9rem);
     z-index: -1;
   }
 
-  .citeThis__flyout {
+  .flyoutClosing .citeThis__button::before {
+    border-radius: 0.25rem;
+    opacity: 0;
+    transition: opacity 75ms ease-out 325ms,
+    border-radius 25ms ease-out 325ms;
+  }
+
+  .flyout {
+    background: #dfdfdf;
+    border-radius: 0.25rem 0 0.25rem 0.25rem;
+    box-shadow: 0.1rem 0.15rem 0.15rem 0 rgba(0, 0, 0, 0.30);
     max-height: 0;
+    max-width: calc(100% + 0.9rem);
+    opacity: 0;
+    overflow: hidden;
     position: absolute;
-    right: -0.7rem;
-    top: calc(100% - 0.28rem);
+    right: -0.45rem;
+    top: calc(100% + 0.28rem);
     visibility: hidden;
   }
 
-  .open > .citeThis__flyout {
-    max-height: 4rem;
+  .flyoutOpen .flyout,
+  .flyoutOpening .flyout {
     visibility: visible;
+    opacity: 1;
+    max-height: 250%; /*2.5 x the button*/
+    max-width: 11rem;
+  }
+
+  .flyoutOpening .flyout {
+    transition: opacity 50ms ease-in 75ms,
+    max-height 100ms ease 50ms,
+    max-width 225ms ease 150ms;
+  }
+
+  .flyoutClosing .flyout {
+    visibility: visible;
+    max-height: 0;
+    max-width: calc(100% + 0.9rem);
+    transition: max-width 255ms ease,
+    max-height 100ms ease 200ms,
+    opacity 50ms ease-out 275ms;
   }
 
   .citeThis__download {

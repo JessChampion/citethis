@@ -62,6 +62,9 @@ __build for production with minification and view bundle analyzer report__:
 __push dist/demo sub folder to github pages branch__:
 `yarn deploy:demo`
 
+## Running locally
+Opem `cite-this/dist/demo/index.html` in a browser
+
 ## Demo build
 1. Build
   `yarn package`
@@ -87,9 +90,9 @@ UI:
 - ~~Use BEM for scoping on ui and styles~~
 - ~~accessibility~~
 - ~~Flyout style picker~~
-- Flyout animation
+- Flyout animation - **IN PROGRESS**
 - ~~Add easily overridable default styling~~
-- ~~Customisable button label~~ - **IN PROGRESS**
+- ~~Customisable button label~~
 
 Build and deploy
 - ~~Separate component from demo app~~
