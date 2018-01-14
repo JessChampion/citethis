@@ -3,11 +3,12 @@ A plugin widget to generate citation files (.ris, .bib, .enw).
 
 Demo https://jesschampion.github.io/citethis/
 
-## Installation
+## Installation & Usage
+### Installation
 
-## Usage
+### Usage
 
-### Vue Component Plugin
+#### Vue Component Plugin
 To use the citation plugin in your vue apps, import the plugin and install it with Vue.use.
 
 ```
@@ -18,7 +19,7 @@ import CiteThisVueComponent from '../src/CiteThisVueComponent';
 Vue.use(CiteThisVueComponent);
 ```
 
-### Static Citation Widget
+#### Static Citation Widget
 include 'cite-this.js' in your html document and instantiate up to 1 citation widget
 per page with the following markup.
 At this stage the element must have an id of 'citation', the type of element is not limited to divs.
@@ -35,7 +36,7 @@ At this stage the element must have an id of 'citation', the type of element is 
 <script type=text/javascript src=../cite-this.js></script>
 ```
 
-### Customising button text
+#### Customising button text
 Custom button text can be added by including
 ```
 label="CITE THIS"
@@ -47,7 +48,8 @@ or binding
 ```
 on the Vue component 
 
-## Scripts
+## Development
+### Scripts
 __install dependencies__:
 `yarn`
 
@@ -56,16 +58,22 @@ __development build__:
 or
 `yarn watch`
 
+__run linters__:
+`yarn lint`
+
 __build for production with minification and view bundle analyzer report__:
 `yarn package`
 
 __push dist/demo sub folder to github pages branch__:
 `yarn deploy:demo`
 
-## Running locally
-Opem `cite-this/dist/demo/index.html` in a browser
+### Build
+#### Running locally
+1. Build by running
+  `yarn build` or`yarn watch`
+2. Open `cite-this/dist/demo/index.html` in a browser
 
-## Demo build
+#### Demo build
 1. Build
   `yarn package`
 2. Commit changes
@@ -74,8 +82,14 @@ Opem `cite-this/dist/demo/index.html` in a browser
   `yarn deploy:demo`
 4. Update version number in `package.json` and push to master
 
-## TODOs
+### Code Style
+There are linters set up to enforce code style, run with `yarn lint`.
 
+### Tests
+TODO
+
+
+### TODOs
 VUE best practice
 - ~~Refactor CiteThis to separate ui into a presentational component~~
 - Use private properties
@@ -86,11 +100,10 @@ Error handling:
 - ~~Add prop types validations to enforce public api~~
 
 UI:
-- ~~Make ui nicer~~
 - ~~Use BEM for scoping on ui and styles~~
 - ~~accessibility~~
 - ~~Flyout style picker~~
-- Flyout animation - **IN PROGRESS**
+- ~~Flyout animation~~
 - ~~Add easily overridable default styling~~
 - ~~Customisable button label~~
 
@@ -103,9 +116,8 @@ Implementation:
 - **(Higher Priority - at work)** Add support for all required types and fields
 - Support multiple elements per page
 - ~~Build for Vue component use~~
-- ~~Change mounting loop to check on addEvent~~
 
 Tidy up:
-- **(Higher Priority)** Test coverage
+- **(Higher Priority)** Test coverage - **IN PROGRESS**
 - Hidden link for downloads (is there a nicer way to do this that won't require timeout)
 - Compile styles with sass or postcss then tidy
