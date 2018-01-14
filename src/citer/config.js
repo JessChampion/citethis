@@ -5,14 +5,22 @@ const BIB = 'BIB';
 const ENW = 'ENW';
 const RIS = 'RIS';
 
-export const FORMATS = { BIB, ENW, RIS };
+export const FORMATS = {
+  BIB,
+  ENW,
+  RIS
+};
 
 // TYPES
 const ARTICLE = 'ARTICLE';
 const BOOK = 'BOOK';
 const MISC = 'MISC';
 
-export const TYPES = { ARTICLE, BOOK, MISC };
+export const TYPES = {
+  ARTICLE,
+  BOOK,
+  MISC
+};
 
 export const TYPE_CODES = {
   ARTICLE: {

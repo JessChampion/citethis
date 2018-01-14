@@ -17,7 +17,7 @@
       },
       label: {
         type: String,
-        required: true,
+        required: true
       },
       toggle: {
         required: true,
@@ -28,8 +28,8 @@
     methods: {
       close() {
         this.toggle();
-        document.body.removeEventListener('mouseup', this.onBodyClick);
-        this.$el.parentElement.removeEventListener('mouseup', this.onClickInsideParent);
+        document.body.removeEventListener('click', this.onBodyClick);
+        this.$el.parentElement.removeEventListener('click', this.onClickInsideParent);
       },
 
       onBodyClick() {
@@ -51,8 +51,8 @@
 
       open() {
         this.toggle();
-        document.body.addEventListener('mouseup', this.onBodyClick);
-        this.$el.parentElement.addEventListener('mouseup', this.onClickInsideParent);
+        document.body.addEventListener('click', this.onBodyClick);
+        this.$el.parentElement.addEventListener('click', this.onClickInsideParent);
       }
     }
   };

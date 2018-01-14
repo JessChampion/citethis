@@ -5,7 +5,7 @@
     <CiteThisButton class="citeThis__button"
                     :active="isOpen"
                     :label="label"
-                    :toggle="open"
+                    :toggle="toggleOpen"
     />
     <div class="citeThis__flyout flyout">
       <CiteThisFormatSelector class="formatSelector"
@@ -57,7 +57,7 @@
   const getExtension = format => `.${format.toLowerCase()}`;
   const concatWithoutSpace = replace(/\s/g, '');
   const getDownloadFileName = (format, author = 'ref', year = '') =>
-      `${concatWithoutSpace(author)}${year}${getExtension(format)}`;
+    `${concatWithoutSpace(author)}${year}${getExtension(format)}`;
 
   const getDownloadHref = content => `data:text/plain;charset=utf-8,${encodeURIComponent(content)}`;
   const createDownloadHref = compose(getDownloadHref, createCitation);
@@ -107,7 +107,9 @@
 
     methods: {
       cite(format) {
-        this.currentFormat = format;
+        if (format) {
+          this.currentFormat = format;
+        }
         const providedData = {
           author: this.author,
           title: this.title,
@@ -138,7 +140,7 @@
         return getDownloadFileName(this.currentFormat, this.author, this.year);
       },
 
-      open() {
+      toggleOpen() {
         if (this.isOpen) {
           this.close();
           return;

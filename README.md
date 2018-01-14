@@ -100,8 +100,17 @@ __push dist/demo sub folder to github pages branch__:
 There are linters set up to enforce code style, run with `yarn lint`.
 
 ### Tests
-TODO
+JavaScript unit tests are implemented with Jest and [vue-test-utils](https://vue-test-utils.vuejs.org/)
+The specs are located in `test/unit/specs` and can be run with `yarn test`
 
+#### Coverage
+Test coverage can be reported by running `yarn test:coverage`
+
+### WebStorm Integration
+Import the provided WebStorm configuration (`TODO`) to get the following integrations:
+- EditorConfig
+- ESLint
+- Jest run configuration with debug support
 
 ### TODOs
 VUE best practice

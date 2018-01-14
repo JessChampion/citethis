@@ -4,10 +4,10 @@
       Select citation file format
     </legend>
     <div class="formatSelector__buttons">
-      <button class="formatSelector__button"
-              v-for="format in formats"
+      <button v-for="format in formats"
               :key="format"
-              @click="cite(format)"
+              :class="getClasses(format)"
+              @click="() => cite(format)"
       >
         {{ format }}
       </button>
@@ -26,7 +26,12 @@
       formats: {
         type: Object,
         required: true
-      },
+      }
+    },
+    methods: {
+      getClasses(format) {
+        return `formatSelector__button formatSelector__button--${format}`;
+      }
     }
   };
 </script>

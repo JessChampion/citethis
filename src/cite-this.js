@@ -6,12 +6,12 @@ import CiteThis from './CiteThis.vue';
 
 import { VALID_TAGS } from './citer/config';
 
-const TARGET_CLASS = 'cite-this ';
+const TARGET_CLASS = 'cite-this';
 const observerConfig = {
   attributes: false,
   characterData: false,
   childList: true,
-  subtree: true,
+  subtree: true
 };
 
 const filterAcceptedAttributes = pick([...VALID_TAGS, 'label']);
@@ -36,7 +36,7 @@ const mountElements = forEach(mountByID);
 const getIDsForElements = map(ele => ele.id);
 const hasValidIds = none(isEmpty);
 
-const getAnchorElements = () => document.getElementsByClassName(TARGET_CLASS);
+const getAnchorElements = () => [...document.getElementsByClassName(TARGET_CLASS)];
 
 const mount = () => {
   const elements = getAnchorElements();
@@ -49,8 +49,8 @@ const mount = () => {
   if (elements.length > 1) {
     const ids = getIDsForElements(elements);
     if (!hasValidIds(ids)) {
+      // eslint-disable-next-line no-console
       console.error('cite-this: To have multiple citation widgets on a page, each must have a unique ID.');
-
       return true;// to stop observing for mounted elements
     }
     mountElements(ids);
@@ -61,11 +61,12 @@ const mount = () => {
 const onMutation = (mutations, observer) => {
   if (mount()) observer.disconnect();
 };
-const createObserver = () => new MutationObserver(onMutation);
+const observerFactory = (callback) => new MutationObserver(callback);
 
-const loadCiteThis = () => {
+export const loadCiteThis = (createObserver = observerFactory) => {
   if (mount()) return;
-  createObserver().observe(document.body, observerConfig);
+  createObserver(onMutation).observe(document.body, observerConfig);
 };
 
+// call on init
 loadCiteThis();

@@ -27,7 +27,7 @@ const createCitation = (format, data) => {
   if (!validateFormat(format) || !validateData(data)) {
     // TODO clean up - better error messages
     // eslint-disable-next-line no-console
-    console.error('Invalid params');
+    throw new Error('Invalid params');
   }
   return generateContent(format, data);
 };
