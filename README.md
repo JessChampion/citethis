@@ -20,12 +20,10 @@ Vue.use(CiteThisVueComponent);
 ```
 
 #### Static Citation Widget
-include 'cite-this.js' in your html document and instantiate up to 1 citation widget
-per page with the following markup.
-At this stage the element must have an id of 'citation', the type of element is not limited to divs.
+include 'cite-this.js' in your html document to add citation widgets with the following markup:
 
 ```
-<div id="citation"
+<div class="cite-this"
     label="CITE THIS"
     author="Example Author"
     title="Example Document"
@@ -35,6 +33,12 @@ At this stage the element must have an id of 'citation', the type of element is 
 
 <script type=text/javascript src=../cite-this.js></script>
 ```
+
+The class `cite-this` must be present as it is used by the plugin to find where to mount the widgets.
+
+**MULTIPLE ELEMENT SUPPORT**
+Multiple widgets can be added to the same page, by creating multiple html fragements as above.
+However in this case, the anchor element must each have a unique ID in addition to the `cite-this` class.
 
 #### Customising button text
 Custom button text can be added by including
@@ -114,10 +118,10 @@ Build and deploy
 
 Implementation:
 - **(Higher Priority - at work)** Add support for all required types and fields
-- Support multiple elements per page
+- ~~Support multiple elements per page~~
 - ~~Build for Vue component use~~
 
 Tidy up:
-- **(Higher Priority)** Test coverage - **IN PROGRESS**
+- **(Higher Priority)** Test coverage - **ON HOLD  - in branch**
 - Hidden link for downloads (is there a nicer way to do this that won't require timeout)
 - Compile styles with sass or postcss then tidy

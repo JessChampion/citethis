@@ -1,11 +1,12 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue';
-import { compose, converge, map, mergeAll, objOf, pick, prop } from 'ramda';
+import { compose, converge, forEach, isEmpty, map, mergeAll, none, objOf, pick, prop } from 'ramda';
 
 import CiteThis from './CiteThis.vue';
+
 import { VALID_TAGS } from './citer/config';
 
-const ID = 'citation';
+const TARGET_CLASS = 'cite-this ';
 const observerConfig = {
   attributes: false,
   characterData: false,
@@ -13,14 +14,12 @@ const observerConfig = {
   subtree: true,
 };
 
-const hasElement = () => !!document.getElementById(ID);
-const getAttributePairs = converge(objOf, [prop('nodeName'), prop('nodeValue')]);
 const filterAcceptedAttributes = pick([...VALID_TAGS, 'label']);
+const getAttributePairs = converge(objOf, [prop('nodeName'), prop('nodeValue')]);
 const getRootAttributes = compose(filterAcceptedAttributes, mergeAll, map(getAttributePairs));
-// eslint-disable-next-line no-new
-const createApp = () => new Vue({
-  // eslint-disable-next-line prefer-template
-  el: '#' + ID,
+
+const createApp = selector => new Vue({ // eslint-disable-line no-new
+  el: selector,
   components: {
     CiteThis
   },
@@ -30,18 +29,38 @@ const createApp = () => new Vue({
   }
 });
 
+const mountByClass = () => createApp(`.${TARGET_CLASS}`);
+const mountByID = ID => createApp(`#${ID}`);
+const mountElements = forEach(mountByID);
+
+const getIDsForElements = map(ele => ele.id);
+const hasValidIds = none(isEmpty);
+
+const getAnchorElements = () => document.getElementsByClassName(TARGET_CLASS);
+
 const mount = () => {
-  if (hasElement()) {
-    createApp();
-    return true;
+  const elements = getAnchorElements();
+  if (!elements || elements.length <= 0) {
+    return false;
   }
-  return false;
+  if (elements.length === 1) {
+    mountByClass();
+  }
+  if (elements.length > 1) {
+    const ids = getIDsForElements(elements);
+    if (!hasValidIds(ids)) {
+      console.error('cite-this: To have multiple citation widgets on a page, each must have a unique ID.');
+
+      return true;// to stop observing for mounted elements
+    }
+    mountElements(ids);
+  }
+  return true;
 };
 
 const onMutation = (mutations, observer) => {
   if (mount()) observer.disconnect();
 };
-
 const createObserver = () => new MutationObserver(onMutation);
 
 const loadCiteThis = () => {
