@@ -81,9 +81,19 @@ __push dist/demo sub folder to github pages branch__:
 1. Build
   `yarn package`
 2. Commit changes
-  `git commit -am"DEMO X.Y.Z"`
+  `git commit -am"V X.Y.Z"`
 3. Push to gh-pages branch
   `yarn deploy:demo`
+4. Update version number in `package.json` and push to master
+
+#### Production build
+1. Build
+  `yarn package`
+2. Update version number in `package.json`
+3. Commit changes
+  `git commit -am"V X.Y.Z"` 
+5. Deploy to npm
+   `yarn deploy`
 4. Update version number in `package.json` and push to master
 
 ### Code Style
