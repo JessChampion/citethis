@@ -161,7 +161,6 @@
 
   .citeThis {
     display: inline-block;
-    font-size: 1em;
     position: relative;
   }
 
@@ -207,8 +206,8 @@
     opacity: 0;
     overflow: hidden;
     position: absolute;
-    right: -0.45em;
-    top: calc(100% + 0.28em);
+    right: -0.43em;
+    top: calc(100% + 0.25em);
     visibility: hidden;
   }
 
