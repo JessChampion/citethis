@@ -162,6 +162,7 @@
   .citeThis {
     display: inline-block;
     position: relative;
+    z-index: 1;
   }
 
   .citeThis__button {
