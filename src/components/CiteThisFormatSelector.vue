@@ -35,16 +35,16 @@
   .formatSelector {
     border: none;
     margin: 0;
-    padding: 0.75rem 0.6rem 0.45rem;
+    padding: 0.75em 0.6em 0.45em;
     text-align: left;
-    width: 9.5rem;
+    width: 9.5em;
   }
 
   .formatSelector__title {
     cursor: default;
-    font-size: 0.8rem;
+    font-size: 0.8em;
     position: relative;
-    top: 0.5rem;
+    top: 0.5em;
   }
 
   .formatSelector__buttons {
@@ -53,8 +53,8 @@
 
   .formatSelector__button {
     cursor: pointer;
-    font-size: 0.8rem;
-    margin-right: 0.25rem;
-    min-width: 2.5rem;
+    font-size: 0.8em;
+    margin-right: 0.25em;
+    min-width: 2.5em;
   }
 </style>

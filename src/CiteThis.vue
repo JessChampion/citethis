@@ -153,15 +153,15 @@
 
 <style>
   .citeThis button {
-    border-radius: 0.25rem;
-    font-size: 0.9rem;
-    outline-offset: -0.1rem;
-    padding: 0.2rem 0.25rem;
+    border-radius: 0.25em;
+    font-size: 0.9em;
+    outline-offset: -0.1em;
+    padding: 0.2em 0.25em;
   }
 
   .citeThis {
     display: inline-block;
-    font-size: 1rem;
+    font-size: 1em;
     position: relative;
   }
 
@@ -178,21 +178,21 @@
   .flyoutOpening .citeThis__button::before,
   .flyoutClosing .citeThis__button::before {
     background: #dfdfdf;
-    border-radius: 0.25rem 0.25rem 0 0;
-    box-shadow: 0.1rem 0.05rem 0.15rem 0 rgba(0, 0, 0, 0.30);
+    border-radius: 0.25em 0.25em 0 0;
+    box-shadow: 0.1em 0.05em 0.15em 0 rgba(0, 0, 0, 0.30);
     content: '';
-    height: calc(100% + 0.8rem);
+    height: calc(100% + 0.8em);
     opacity: 1;
     position: absolute;
-    right: -0.45rem;
+    right: -0.45em;
     transition: opacity 75ms ease-in;
-    top: -0.4rem;
-    width: calc(100% + 0.9rem);
+    top: -0.4em;
+    width: calc(100% + 0.9em);
     z-index: -1;
   }
 
   .flyoutClosing .citeThis__button::before {
-    border-radius: 0.25rem;
+    border-radius: 0.25em;
     opacity: 0;
     transition: opacity 75ms ease-out 325ms,
     border-radius 25ms ease-out 325ms;
@@ -200,15 +200,15 @@
 
   .flyout {
     background: #dfdfdf;
-    border-radius: 0.25rem 0 0.25rem 0.25rem;
-    box-shadow: 0.1rem 0.15rem 0.15rem 0 rgba(0, 0, 0, 0.30);
+    border-radius: 0.25em 0 0.25em 0.25em;
+    box-shadow: 0.1em 0.15em 0.15em 0 rgba(0, 0, 0, 0.30);
     max-height: 0;
-    max-width: calc(100% + 0.9rem);
+    max-width: calc(100% + 0.9em);
     opacity: 0;
     overflow: hidden;
     position: absolute;
-    right: -0.45rem;
-    top: calc(100% + 0.28rem);
+    right: -0.45em;
+    top: calc(100% + 0.28em);
     visibility: hidden;
   }
 
@@ -217,7 +217,7 @@
     visibility: visible;
     opacity: 1;
     max-height: 250%; /*2.5 x the button*/
-    max-width: 11rem;
+    max-width: 11em;
   }
 
   .flyoutOpening .flyout {
@@ -229,7 +229,7 @@
   .flyoutClosing .flyout {
     visibility: visible;
     max-height: 0;
-    max-width: calc(100% + 0.9rem);
+    max-width: calc(100% + 0.9em);
     transition: max-width 255ms ease,
     max-height 100ms ease 200ms,
     opacity 50ms ease-out 275ms;

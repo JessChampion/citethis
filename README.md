@@ -93,7 +93,7 @@ __push dist/demo sub folder to github pages branch__:
 3. Commit changes
   `git commit -am"V X.Y.Z"` 
 5. Deploy to npm
-   `yarn deploy`
+   `npm publish`
 4. Update version number in `package.json` and push to master
 
 ### Code Style
