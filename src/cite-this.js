@@ -14,7 +14,7 @@ const observerConfig = {
   subtree: true
 };
 
-const filterAcceptedAttributes = pick([...VALID_TAGS, 'label']);
+const filterAcceptedAttributes = pick([...VALID_TAGS, 'label', 'type']);
 const getAttributePairs = converge(objOf, [prop('nodeName'), prop('nodeValue')]);
 const getRootAttributes = compose(filterAcceptedAttributes, mergeAll, map(getAttributePairs));
 

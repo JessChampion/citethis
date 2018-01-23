@@ -154,7 +154,7 @@
         if (format) {
           this.currentFormat = format;
         }
-        const providedData = {
+        const providedData = { // TODO: ramda this
           address: this.address,
           author: this.author,
           editor: this.editor,
