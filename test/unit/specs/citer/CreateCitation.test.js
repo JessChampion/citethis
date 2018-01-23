@@ -1,5 +1,5 @@
 /* global describe, expect, jest, it */
-
+import { merge } from 'ramda';
 import createCitation from '../../../../src/citer/CreateCitation';
 import { FORMATS, TYPES } from '../../../../src/citer/config';
 
@@ -107,5 +107,28 @@ describe('createCitation', () => {
       `VL  - ${testData.volume}\r\n` +
       `PY  - ${testData.year}\r\n` +
       'ER  - ');
+  });
+
+  it('removes fields with null values from the data', () => {
+    const partialTestData = merge(testData, {
+      address: null,
+      institution: null,
+      journal: null,
+      month: null,
+      number: null,
+      pages: null,
+      publisher: null,
+      series: null,
+      url: null,
+      volume: null
+    });
+    const citation = createCitation(FORMATS.BIB, partialTestData);
+
+    expect(citation).toEqual('@book{\r\n' +
+      `author = "${testData.author}"\r\n` +
+      `editor = "${testData.editor}"\r\n` +
+      `title = "${testData.title}"\r\n` +
+      `year = "${testData.year}"\r\n` +
+      '}');
   });
 });

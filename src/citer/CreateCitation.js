@@ -1,10 +1,9 @@
-import { compose, contains, flip, join, map, omit, pair, pathOr, toPairs, values, T } from 'ramda';
+import { compose, contains, flip, filter, isNil, join, map, not, omit, pair, pathOr, toPairs, values } from 'ramda';
 
 import { FORMATS, SEPARATOR, TAGS, TEMPLATE, TYPE_CODES } from './config';
 
 const isInFormatList = flip(contains)(values(FORMATS));
 const validateFormat = format => isInFormatList(format);
-const validateData = T; // always return true for now // TODO: check requirements for format
 
 const getTypeCode = (format, type) => pathOr('MISC', [type, format])(TYPE_CODES);
 const getEntries = compose(toPairs, omit(['type', 'label']));
@@ -22,14 +21,17 @@ const generateContent = (format, data) => {
   return TEMPLATE[format](type, body);
 };
 
+const excludeNullValues = filter(compose(not, isNil));
+
 const createCitation = (format, data) => {
   // param validation
-  if (!validateFormat(format) || !validateData(data)) {
+  if (!validateFormat(format) || isNil(data)) { // If you add data validation, do it here
     // TODO clean up - better error messages
     // eslint-disable-next-line no-console
     throw new Error('Invalid params');
   }
-  return generateContent(format, data);
+  const filteredData = excludeNullValues(data);
+  return generateContent(format, filteredData);
 };
 
 export default createCitation;
