@@ -75,7 +75,48 @@
         type: String,
         default: 'CITE'
       },
+      type: {
+        type: String,
+        default: TYPES.MISC,
+        validator: validateType
+      },
+      address: {
+        type: String,
+        default: null
+      },
       author: {
+        type: String,
+        default: null
+      },
+      editor: {
+        type: String,
+        default: null
+      },
+      institution: {
+        type: String,
+        default: null
+      },
+      journal: {
+        type: String,
+        default: null
+      },
+      month: {
+        type: String,
+        default: null
+      },
+      number: {
+        type: String,
+        default: null
+      },
+      pages: {
+        type: String,
+        default: null
+      },
+      publisher: {
+        type: String,
+        default: null
+      },
+      series: {
         type: String,
         default: null
       },
@@ -83,10 +124,13 @@
         type: String,
         default: null
       },
-      type: {
+      url: {
         type: String,
-        default: TYPES.MISC,
-        validator: validateType
+        default: null
+      },
+      volume: {
+        type: String,
+        default: null
       },
       year: {
         type: String,
@@ -111,9 +155,20 @@
           this.currentFormat = format;
         }
         const providedData = {
+          address: this.address,
           author: this.author,
+          editor: this.editor,
+          institution: this.institution,
+          journal: this.journal,
+          month: this.month,
+          number: this.number,
+          pages: this.pages,
+          publisher: this.publisher,
+          series: this.series,
           title: this.title,
           type: this.type,
+          url: this.url,
+          volume: this.volume,
           year: this.year
         };
         this.href = createDownloadHref(this.currentFormat, providedData);

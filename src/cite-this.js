@@ -61,12 +61,14 @@ const mount = () => {
 const onMutation = (mutations, observer) => {
   if (mount()) observer.disconnect();
 };
-const observerFactory = (callback) => new MutationObserver(callback);
+const observerFactory = callback => new MutationObserver(callback);
 
-export const loadCiteThis = (createObserver = observerFactory) => {
+const loadCiteThis = (createObserver = observerFactory) => {
   if (mount()) return;
   createObserver(onMutation).observe(document.body, observerConfig);
 };
 
 // call on init
 loadCiteThis();
+
+export default loadCiteThis;

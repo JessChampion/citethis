@@ -7,9 +7,20 @@ import CiteThis from '../../../src/CiteThis';
 
 const defaultProps = {
   label: '\'CITE THIS\'',
+  address: '123 Test Road',
   author: 'Test Author',
+  editor: 'Test Editor',
+  institution: 'Department of Test',
+  journal: 'Test Journal Monthly',
+  month: 'March',
+  number: '1234',
+  pages: '83, 84',
+  publisher: 'Test Publisher',
+  series: 'Now that\'s what I call testing',
   title: 'Test Title',
   type: TYPES.MISC,
+  url: 'http://test.com/test',
+  volume: '2000',
   year: '2017'
 };
 

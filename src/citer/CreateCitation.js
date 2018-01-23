@@ -7,7 +7,7 @@ const validateFormat = format => isInFormatList(format);
 const validateData = T; // always return true for now // TODO: check requirements for format
 
 const getTypeCode = (format, type) => pathOr('MISC', [type, format])(TYPE_CODES);
-const getEntries = compose(toPairs, omit(['type']));
+const getEntries = compose(toPairs, omit(['type', 'label']));
 const translateTag = format => (key, value) => pair(TAGS[key][format], value);
 const concatenateEntries = format => compose(
   join(SEPARATOR.OUTER[format]),

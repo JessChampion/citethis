@@ -48,6 +48,7 @@
           "allowFirstLine": true
         }
       }
-    ]
+    ],
+    "jasmine/prefer-toHaveBeenCalledWith": 0
   }
 }

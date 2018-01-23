@@ -1,6 +1,6 @@
 {
   "name": "cite-this",
-  "version": "0.6.4",
+  "version": "0.7.0",
   "description": "A plugin widget to generate citation files (.ris, .bib, .enw).",
   "author": "Jess Champion <jess@silverstripe.com>",
   "private": false,
@@ -22,6 +22,7 @@
     "eslint-plugin-jasmine": "^2.9.1",
     "eslint-plugin-jest": "^21.7.0",
     "eslint-plugin-vue": "^4.2.0",
+    "jest": "^22.1.4",
     "jest-vue-preprocessor": "^1.3.1",
     "laravel-mix": "^1.7.2",
     "mutation-observer": "^1.0.3",
@@ -32,7 +33,7 @@
   "scripts": {
     "build": "node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "watch": "yarn build --watch",
-    "lint": "eslint --ext .js,.vue src",
+    "lint": "eslint --ext .js,.vue src test/unit/specs",
     "test": "node_modules/cross-env/dist/bin/cross-env.js NODE_ENV=test jest --config test/unit/jest.conf.js",
     "test:coverage": "yarn test --coverage",
     "test:watch": "yarn test --watch --notify",
