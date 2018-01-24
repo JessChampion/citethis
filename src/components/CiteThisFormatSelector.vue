@@ -36,30 +36,30 @@
   };
 </script>
 
-<style>
+<style lang="scss">
   .formatSelector {
     border: none;
     margin: 0;
     padding: 0.75em 0.6em 0.45em;
     text-align: left;
     width: 9.5em;
-  }
 
-  .formatSelector__title {
-    cursor: default;
-    font-size: 0.8em;
-    position: relative;
-    top: 0.5em;
-  }
+    &__title {
+      cursor: default;
+      font-size: 0.8em;
+      position: relative;
+      top: 0.5em;
+    }
 
-  .formatSelector__buttons {
-    text-align: center;
-  }
+    &__buttons {
+      text-align: center;
+    }
 
-  .formatSelector__button {
-    cursor: pointer;
-    font-size: 0.8em;
-    margin-right: 0.25em;
-    min-width: 2.5em;
+    &__button {
+      cursor: pointer;
+      font-size: 0.8em;
+      margin-right: 0.25em;
+      min-width: 2.5em;
+    }
   }
 </style>

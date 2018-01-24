@@ -209,57 +209,62 @@
   };
 </script>
 
-<style>
-  .citeThis button {
-    border-radius: 0.25em;
-    font-size: 0.9em;
-    outline-offset: -0.1em;
-    padding: 0.2em 0.25em;
-  }
-
+<style lang="scss">
   .citeThis {
     display: inline-block;
     position: relative;
     z-index: 1;
-  }
 
-  .citeThis__button {
-    cursor: pointer;
-    display: inline-block;
-  }
+    button {
+      border-radius: 0.25em;
+      font-size: 0.9em;
+      outline-offset: -0.1em;
+      padding: 0.2em 0.25em;
+    }
 
-  .citeThis__button::before {
-    opacity: 0;
-  }
+    &__download {
+      display: none; /* hidden download link */
+    }
 
-  .flyoutOpen .citeThis__button::before,
-  .flyoutOpening .citeThis__button::before,
-  .flyoutClosing .citeThis__button::before {
-    background: #dfdfdf;
-    border-radius: 0.25em 0.25em 0 0;
-    box-shadow: 0.1em 0.05em 0.15em 0 rgba(0, 0, 0, 0.30);
-    content: '';
-    height: calc(100% + 0.8em);
-    opacity: 1;
-    position: absolute;
-    right: -0.45em;
-    transition: opacity 75ms ease-in;
-    top: -0.4em;
-    width: calc(100% + 0.9em);
-    z-index: -1;
-  }
+    &__button {
+      cursor: pointer;
+      display: inline-block;
 
-  .flyoutClosing .citeThis__button::before {
-    border-radius: 0.25em;
-    opacity: 0;
-    transition: opacity 75ms ease-out 325ms,
-    border-radius 25ms ease-out 325ms;
+      &::before {
+        opacity: 0;
+
+        .flyoutOpen &,
+        .flyoutOpening &,
+        .flyoutClosing & {
+          background: #dfdfdf;
+          border-radius: 0.25em 0.25em 0;
+          box-shadow: 0.1em 0.05em 0.15em 0 rgba(0, 0, 0, 0.3);
+          content: '';
+          height: calc(100% + 0.8em);
+          opacity: 1;
+          position: absolute;
+          right: -0.45em;
+          transition: opacity 75ms ease-in;
+          top: -0.4em;
+          width: calc(100% + 0.9em);
+          z-index: -1;
+        }
+
+        .flyoutClosing & {
+          border-radius: 0.25em;
+          opacity: 0;
+          transition:
+            opacity 75ms ease-out 325ms,
+            border-radius 25ms ease-out 325ms;
+        }
+      }
+    }
   }
 
   .flyout {
     background: #dfdfdf;
     border-radius: 0.25em 0 0.25em 0.25em;
-    box-shadow: 0.1em 0.15em 0.15em 0 rgba(0, 0, 0, 0.30);
+    box-shadow: 0.1em 0.15em 0.15em 0 rgba(0, 0, 0, 0.3);
     max-height: 0;
     max-width: calc(100% + 0.9em);
     opacity: 0;
@@ -268,32 +273,30 @@
     right: -0.43em;
     top: calc(100% + 0.25em);
     visibility: hidden;
-  }
 
-  .flyoutOpen .flyout,
-  .flyoutOpening .flyout {
-    visibility: visible;
-    opacity: 1;
-    max-height: 250%; /*2.5 x the button*/
-    max-width: 11em;
-  }
+    .flyoutOpen &,
+    .flyoutOpening & {
+      visibility: visible;
+      opacity: 1;
+      max-height: 250%; /* 2.5 x the button */
+      max-width: 11em;
+    }
 
-  .flyoutOpening .flyout {
-    transition: opacity 50ms ease-in 75ms,
-    max-height 100ms ease 50ms,
-    max-width 225ms ease 150ms;
-  }
+    .flyoutOpening & {
+      transition:
+        opacity 50ms ease-in 75ms,
+        max-height 100ms ease 50ms,
+        max-width 225ms ease 150ms;
+    }
 
-  .flyoutClosing .flyout {
-    visibility: visible;
-    max-height: 0;
-    max-width: calc(100% + 0.9em);
-    transition: max-width 255ms ease,
-    max-height 100ms ease 200ms,
-    opacity 50ms ease-out 275ms;
-  }
-
-  .citeThis__download {
-    display: none; /*hidden download link*/
+    .flyoutClosing & {
+      visibility: visible;
+      max-height: 0;
+      max-width: calc(100% + 0.9em);
+      transition:
+        max-width 255ms ease,
+        max-height 100ms ease 200ms,
+        opacity 50ms ease-out 275ms;
+    }
   }
 </style>
