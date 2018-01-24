@@ -167,26 +167,28 @@ Test coverage can be reported by running `yarn test:coverage`
 ### Enhancement Backlog
 VUE best practice
 - ~~Refactor CiteThis to separate ui into a presentational component~~
-- Use private properties
-  https://vuejs.org/v2/style-guide/#Private-property-names-essential
-- Update eslint vue plugin when 4.1 available. Set script indent to remove lint errors.
+- Run through all best practices and tidy up.
 
 UI:
-- ~~Flyout style picker~~
 - ~~Add easily overridable default styling~~
 - ~~Customisable button label~~
-- Check accessibility
-- Tweak flyout animation
+- tweak animation
+- check accessibility
+
+- ~~Build and deploy~~
 
 Implementation:
-- **(Higher Priority)** Add support for all required types and fields - **IN PROGRESS**
+- ~~Add support for all required types and fields~~
 - ~~Support multiple elements per page~~
 - ~~Build for Vue component use~~
 - ~~Build and deploy~~
-- Validate required fields for type.
 
 Tidy up:
 - ~~Test coverage~~
 - Hidden link for downloads (is there a nicer way to do this that won't require timeout)
-- Compile styles with sass or postcss then tidy up, add stylelint
-- Standardise error messages console.error vs throwing error
+- Compile styles with sass or postcss then tidy - **IN PROGRESS**
+- Standardise console.error/Error 
+
+Possible future enhancements:
+- Validate required fields for type.
+- Handle multiple authors and editors
