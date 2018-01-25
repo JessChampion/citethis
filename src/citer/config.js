@@ -54,8 +54,8 @@ export const VALID_TAGS = ['address', 'author', 'editor',
 export const TAGS = {
   address: {
     BIB: 'address',
-    ENW: '%+',
-    RIS: 'AD'
+    ENW: '%C',
+    RIS: 'CY'
   },
   author: {
     BIB: 'author',

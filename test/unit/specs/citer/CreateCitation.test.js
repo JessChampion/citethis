@@ -72,7 +72,7 @@ describe('createCitation', () => {
     const citation = createCitation(FORMATS.ENW, testData);
 
     expect(citation).toEqual('%0 Book\r\n' +
-      `%+ ${testData.address}\r\n` +
+      `%C ${testData.address}\r\n` +
       `%A ${testData.author}\r\n` +
       `%E ${testData.editor}\r\n` +
       `%Y ${testData.institution}\r\n` +
@@ -92,7 +92,7 @@ describe('createCitation', () => {
     const citation = createCitation(FORMATS.RIS, testData);
 
     expect(citation).toEqual('TY  - BOOK\r\n' +
-      `AD  - ${testData.address}\r\n` +
+      `CY  - ${testData.address}\r\n` +
       `AU  - ${testData.author}\r\n` +
       `ED  - ${testData.editor}\r\n` +
       `A3  - ${testData.institution}\r\n` +
