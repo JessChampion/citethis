@@ -5,6 +5,7 @@ const SRC = {
   plugin: 'src/cite-this.js',
   component: 'src/CiteThisVueComponent.js',
   demo: {
+    images: 'demo/images',
     index: 'demo/index.html',
     main: 'demo/main.js',
     plugin: 'dist/cite-this.js'
@@ -26,6 +27,7 @@ mix.js(SRC.component, DEST.dist);
 mix.js(SRC.demo.main, DEST.demo);
 mix.copy(SRC.demo.plugin, DEST.demo);
 mix.copy(SRC.demo.index, DEST.demo);
+mix.copy(SRC.demo.images, `${DEST.demo}\images`);
 
 // Custom webpack config
 if (mix.inProduction()) {

@@ -45,16 +45,23 @@
       text-align: right;
     }
 
+    .title{
+      position: relative;
+    }
+
     .gh-link {
+      background: transparent url('./images/mark-github.svg') no-repeat center top /contain;
+      top: 0.25rem;
       display: inline-block;
-      text-align: right;
-      width: calc(100% - 2rem);
+      height: 2rem;
+      position: absolute;
+      right: 0;
+      width: 2rem;
     }
   </style>
 </head>
 <body>
-<h1>Cite This</h1>
-<a class='gh-link' href="https://github.com/JessChampion/citethis">View on GitHub</a>
+<h1 class="title">Cite This <a class='gh-link' href="https://github.com/JessChampion/citethis" title="View on GitHub"></a></h1>
 
 <div class="demo">
   <h2>Vue Component Demo</h2>
