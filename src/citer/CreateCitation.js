@@ -27,7 +27,6 @@ const createCitation = (format, data) => {
   // param validation
   if (!validateFormat(format) || isNil(data)) { // If you add data validation, do it here
     // TODO clean up - better error messages
-    // eslint-disable-next-line no-console
     throw new Error('Invalid params');
   }
   const filteredData = excludeNullValues(data);

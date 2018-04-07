@@ -37,8 +37,7 @@
     const valid = has(value, TYPES);
     if (!valid) {
       const message = `Invalid value '${value}' provided for type. Defaulting to type '${TYPES.MISC}'. Valid types are: ${listKeys(TYPES)}.`;
-      // eslint-disable-next-line no-console
-      console.error(message);
+      throw new Error(message);
     }
     return valid;
   };
@@ -48,8 +47,7 @@
     const valid = (!Number.isNaN(y) && y > 0);
     if (!valid) {
       const message = `Invalid value '${year}' provided for year. The value must be a positive integer.`;
-      // eslint-disable-next-line no-console
-      console.error(message);
+      throw new Error(message);
     }
     return valid;
   };

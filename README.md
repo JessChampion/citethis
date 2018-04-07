@@ -172,8 +172,7 @@ VUE best practice
 UI:
 - ~~Add easily overridable default styling~~
 - ~~Customisable button label~~
-- Tweak animation
-- Check accessibility
+- ~~Tweak animation~~
 - ~~Build and deploy~~
 
 Implementation:
@@ -187,7 +186,7 @@ Tidy up:
 - ~~Test coverage~~
 - Hidden link for downloads (is there a nicer way to do this that won't require timeout)
 - ~~Compile styles with sass or postcss then tidy~~
-- Standardise console.error/Error 
+- ~~Standardise console.error/Error~~ 
 - Tidy up docs
 
 Possible future enhancements:
