@@ -143,7 +143,7 @@ or
 2. Commit changes
   `git commit -am"V X.Y.Z"`
 3. Push to gh-pages branch
-  `yarn deploy:demo`
+  `yarn deploy`
 4. Update version number in `package.json` and push to master
 
 #### Production build
@@ -172,9 +172,8 @@ VUE best practice
 UI:
 - ~~Add easily overridable default styling~~
 - ~~Customisable button label~~
-- tweak animation
-- check accessibility
-
+- Tweak animation
+- Check accessibility
 - ~~Build and deploy~~
 
 Implementation:
@@ -182,12 +181,14 @@ Implementation:
 - ~~Support multiple elements per page~~
 - ~~Build for Vue component use~~
 - ~~Build and deploy~~
+- Convert to web component  - **IN PROGRESS**
 
 Tidy up:
 - ~~Test coverage~~
 - Hidden link for downloads (is there a nicer way to do this that won't require timeout)
-- Compile styles with sass or postcss then tidy - **IN PROGRESS**
+- ~~Compile styles with sass or postcss then tidy~~
 - Standardise console.error/Error 
+- Tidy up docs
 
 Possible future enhancements:
 - Validate required fields for type.
