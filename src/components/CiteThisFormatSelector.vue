@@ -1,12 +1,12 @@
 <template>
-  <fieldset :class="$style.formatSelector">
-    <legend :class="$style.formatSelector__title">
+  <fieldset class="formatSelector">
+    <legend class="formatSelector__title">
       Select citation file format
     </legend>
-    <div :class="$style.formatSelector__buttons">
+    <div class="formatSelector__buttons">
       <button v-for="format in formats"
               :key="format"
-              :class="$style.formatSelector__button"
+              class="formatSelector__button"
               @click="() => cite(format)"
       >
         {{ format }}
@@ -31,7 +31,7 @@
   };
 </script>
 
-<style module lang="scss">
+<style lang="scss">
   .formatSelector {
     border: none;
     margin: 0;

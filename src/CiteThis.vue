@@ -1,21 +1,22 @@
 <template>
-  <div :class="[$style.citeThis, (isOpen ? $style.flyoutOpen: ''), getTransitionClass()]">
-    <CiteThisButton :class="$style.citeThis__button"
-                    :active="isOpen"
+  <div :class="[{ flyoutOpen: isOpen }, transition]"
+       class="citeThis"
+  >
+    <CiteThisButton :active="isOpen"
                     :label="label"
                     :toggle="toggleOpen"
+                    class="citeThis__button"
     />
-    <div :class="[$style.citeThis__flyout, $style.flyout]">
-      <CiteThisFormatSelector :class="$style.formatSelector"
-                              :formats="availableFormats"
-                              :cite="cite"/>
+    <div class="citeThis__flyout flyout">
+      <CiteThisFormatSelector :formats="availableFormats"
+                              :cite="cite"
+                              class="formatSelector"/>
     </div>
     <a ref="downloadLink"
-       :class="$style.citeThis__download"
        :download="getFileName()"
        :href="href"
-       target="_blank"
-    >
+       class="citeThis__download"
+       target="_blank">
       click to download
     </a>
   </div>
@@ -232,7 +233,7 @@
   };
 </script>
 
-<style module lang="scss">
+<style lang="scss">
   .citeThis {
     display: inline-block;
     position: relative;
