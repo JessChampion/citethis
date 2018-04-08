@@ -7,6 +7,7 @@
   "main": "dist/cite-this.js",
   "repository": "https://github.com/JessChampion/citethis",
   "dependencies": {
+    "@vue/web-component-wrapper": "^1.2.0",
     "ramda": "^0.25.0",
     "vue": "^2.5.9"
   },
