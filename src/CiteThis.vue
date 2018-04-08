@@ -1,22 +1,21 @@
 <template>
-  <div class="citeThis"
-       :class="[{ flyoutOpen: isOpen }, transition]"
-  >
-    <CiteThisButton class="citeThis__button"
+  <div :class="[$style.citeThis, (isOpen ? $style.flyoutOpen: ''), getTransitionClass()]">
+    <CiteThisButton :class="$style.citeThis__button"
                     :active="isOpen"
                     :label="label"
                     :toggle="toggleOpen"
     />
-    <div class="citeThis__flyout flyout">
-      <CiteThisFormatSelector class="formatSelector"
+    <div :class="[$style.citeThis__flyout, $style.flyout]">
+      <CiteThisFormatSelector :class="$style.formatSelector"
                               :formats="availableFormats"
                               :cite="cite"/>
     </div>
-    <a class="citeThis__download"
-       target="_blank"
-       ref="downloadLink"
+    <a ref="downloadLink"
+       :class="$style.citeThis__download"
        :download="getFileName()"
-       :href="href">
+       :href="href"
+       target="_blank"
+    >
       click to download
     </a>
   </div>
@@ -31,6 +30,10 @@
   import createCitation from './citer/CreateCitation';
 
   const TRANSITION_DELAY = 600;
+  const TRANSITION = {
+    closing: 'flyoutClosing',
+    opening: 'flyoutOpening'
+  };
 
   const listKeys = compose(join(', '), keys);
   const validateType = (value) => {
@@ -149,6 +152,15 @@
       };
     },
 
+    created() {
+      console.log('created');
+      // manually inject the compiled styles to shadowroot
+      //this.$root.$options.shadowRoot
+      if (this.$root && this.$style) {
+        this.$root.shadowRoot = this.$style;
+      }
+    },
+
     methods: {
       cite(format) {
         if (format) {
@@ -187,7 +199,7 @@
 
       close() {
         this.isOpen = false;
-        this.transition = 'flyoutClosing';
+        this.transition = TRANSITION.closing;
         setTimeout(this.clearTransition, TRANSITION_DELAY);
       },
 
@@ -202,14 +214,25 @@
           return;
         }
         this.isOpen = true;
-        this.transition = 'flyoutOpening';
+        this.transition = TRANSITION.opening;
         setTimeout(this.clearTransition, TRANSITION_DELAY);
+      },
+
+      getTransitionClass() {
+        console.log(this.$style);
+        if (this.transition === TRANSITION.closing) {
+          return this.$style[TRANSITION.closing];
+        }
+        if (this.transition === TRANSITION.opening) {
+          return this.$style[TRANSITION.opening];
+        }
+        return '';
       }
     }
   };
 </script>
 
-<style lang="scss">
+<style module lang="scss">
   .citeThis {
     display: inline-block;
     position: relative;
@@ -253,9 +276,8 @@
         .flyoutClosing & {
           border-radius: 0.25em;
           opacity: 0;
-          transition:
-            opacity 75ms ease-out 325ms,
-            border-radius 25ms ease-out 325ms;
+          transition: opacity 75ms ease-out 325ms,
+          border-radius 25ms ease-out 325ms;
         }
       }
     }
@@ -283,20 +305,18 @@
     }
 
     .flyoutOpening & {
-      transition:
-        opacity 50ms ease-in 75ms,
-        max-height 100ms ease 50ms,
-        max-width 225ms ease 150ms;
+      transition: opacity 50ms ease-in 75ms,
+      max-height 100ms ease 50ms,
+      max-width 225ms ease 150ms;
     }
 
     .flyoutClosing & {
       visibility: visible;
       max-height: 0;
       max-width: calc(100% + 0.9em);
-      transition:
-        max-width 255ms ease,
-        max-height 100ms ease 200ms,
-        opacity 50ms ease-out 275ms;
+      transition: max-width 255ms ease,
+      max-height 100ms ease 200ms,
+      opacity 50ms ease-out 275ms;
     }
   }
 </style>

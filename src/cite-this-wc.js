@@ -4,10 +4,16 @@ import wrap from '@vue/web-component-wrapper';
 
 import CiteThis from './CiteThis';
 
+const NAME = 'cite-this';
+
 const init = (_window = window) => {
   const CiteThisElement = wrap(Vue, CiteThis);
-
-  _window.customElements.define('cite-this', CiteThisElement);
+  if (!_window.customElements.get(NAME)) {
+    _window.customElements.define(NAME, CiteThisElement);
+    console.log(_window.customElements.get(NAME));
+  }
 };
 
 init();
+
+export default init();
