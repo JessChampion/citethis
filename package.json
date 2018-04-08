@@ -9,7 +9,7 @@
   "dependencies": {
     "@vue/web-component-wrapper": "^1.2.0",
     "ramda": "^0.25.0",
-    "vue": "^2.5.9"
+    "vue": "^2.5.16"
   },
   "devDependencies": {
     "@vue/test-utils": "^1.0.0-beta.10",
@@ -17,6 +17,7 @@
     "babel-eslint": "^8.2.1",
     "babel-jest": "^22.1.0",
     "cross-env": "^5.1.3",
+    "css-loader": "^0.28.11",
     "eslint": "^4.16.0",
     "eslint-config-airbnb-base": "^12.1.0",
     "eslint-plugin-import": "^2.8.0",
@@ -25,11 +26,12 @@
     "eslint-plugin-vue": "^4.2.0",
     "jest": "^22.1.4",
     "jest-vue-preprocessor": "^1.3.1",
-    "laravel-mix": "^1.7.2",
+    "laravel-mix": "^2.1.11",
     "mutation-observer": "^1.0.3",
     "stylelint": "^8.4.0",
     "stylelint-config-standard": "^18.0.0",
     "stylelint-processor-html": "^1.0.0",
+    "vue-loader": "^14.2.2",
     "vue-template-compiler": "^2.5.13",
     "vue-template-es2015-compiler": "^1.6.0",
     "webpack-bundle-analyzer": "^2.9.2"

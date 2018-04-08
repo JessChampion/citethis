@@ -49,7 +49,7 @@
   };
 </script>
 
-<style>
+<style lang="scss">
   form {
     margin-bottom: 1rem;
   }
