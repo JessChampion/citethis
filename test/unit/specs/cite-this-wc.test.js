@@ -1,7 +1,10 @@
 /* global describe, expect, jest, it, beforeAll */
-
 import { compose, join, map } from 'ramda';
+import * as webComponentWrapper from '@vue/web-component-wrapper';
+
 import { TYPES } from '../../../src/citer/config';
+import initCiteThis from '../../../src/cite-this-wc';
+import CiteThis from '../../../src/CiteThis';
 
 const defaultProps = {
   label: '\'CITE THIS\'',
@@ -12,9 +15,9 @@ const defaultProps = {
 };
 
 const getCiteTemplate = (id, props = defaultProps) => {
-  const idAttr = id ? `id="${id}" ` : '';
-  return '<div class="cite-this" ' +
-    `${idAttr}` +
+  const classAttr = id ? `class="${id}" ` : '';
+  return '<cite-this ' +
+    `${classAttr}` +
     `label="${props.label}" ` +
     `author=${props.author} ` +
     `title=${props.title} ` +
@@ -22,29 +25,46 @@ const getCiteTemplate = (id, props = defaultProps) => {
     `year=${props.year}></div>`;
 };
 
-const getCiteTemplateForIds = compose(join(''), map(getCiteTemplate));
-const getEmptyList = () => '<div id="list"></div>';
-const getTemplate = (ids = []) => {
-  const content = ids.length === 0 ? getCiteTemplate() : getCiteTemplateForIds(ids);
-  return `<div id="list">${content}</div>`;
+const getTemplate = () => {
+  return `<div id="list">${getCiteTemplate()}</div>`;
 };
 
-const getMockMutationObserver = () => ({
-  disconnect: jest.fn(),
-  observe: jest.fn()
+const getMockCustomElements = () => ({
+  define: jest.fn(),
+  get: jest.fn()
 });
+
+const setup = () => {
+  document.body.innerHTML = getTemplate();
+  const mockCustomElements = getMockCustomElements();
+  global.window.customElements = mockCustomElements;
+  global.window.customElements.get.mockClear();
+  global.window.customElements.define.mockClear();
+  return mockCustomElements;
+};
 
 describe('cite-this-wc', () => {
   it('wraps the CiteThis Vue component in the web component wrapper', () => {
+    setup();
+    const wrapSpy = jest.spyOn(webComponentWrapper, 'default');
 
+    expect(wrapSpy).not.toHaveBeenCalled();
+
+    initCiteThis();
+
+    expect(wrapSpy).toHaveBeenCalledWith(expect.any(Function), CiteThis);
   });
 
   it('adds the wrapped component to windows custom elements list', () => {
+    const mockCustomElements = setup();
 
-  });
+    expect(mockCustomElements.get).not.toHaveBeenCalled();
+    expect(mockCustomElements.define).not.toHaveBeenCalled();
 
-  it('loads multiple cite-this elements without unique ids', () => {
+    initCiteThis();
 
+    expect(mockCustomElements.get).toHaveBeenCalledWith('cite-this');
+    expect(mockCustomElements.define).toHaveBeenCalledWith('cite-this', expect.any(Function));
   });
 });
 

@@ -7,13 +7,17 @@ import CiteThis from './CiteThis';
 const NAME = 'cite-this';
 
 const init = (_window = window) => {
-  const CiteThisElement = wrap(Vue, CiteThis);
-  if (!_window.customElements.get(NAME)) {
-    _window.customElements.define(NAME, CiteThisElement);
-    console.log(_window.customElements.get(NAME));
+  try {
+    const CiteThisElement = wrap(Vue, CiteThis);
+    if (!_window.customElements.get(NAME)) {
+      _window.customElements.define(NAME, CiteThisElement);
+      console.log(_window.customElements.get(NAME));
+    }
+  } catch (exception) {
+    console.error(`Unable to inject cite-this custom element: ${exception}`);
   }
 };
 
 init();
 
-export default init();
+export default init;

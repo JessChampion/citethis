@@ -25,7 +25,7 @@ describe('CiteThisFormatSelector', () => {
   it('renders a button for each format', () => {
     const component = setup();
     mapObjIndexed((format) => {
-      const button = component.find(`.formatSelector__button--${format}`);
+      const button = component.find(`.formatSelector__button.${format}`);
 
       expect(button.text()).toBe(format);
     }, defaultProps.formats);
@@ -35,7 +35,7 @@ describe('CiteThisFormatSelector', () => {
     const citeMock = jest.fn();
     const component = setup({ cite: citeMock });
     mapObjIndexed((format) => {
-      const button = component.find(`.formatSelector__button--${format}`);
+      const button = component.find(`.formatSelector__button.${format}`);
       button.trigger('click');
 
       expect(citeMock).toHaveBeenCalledWith(format);

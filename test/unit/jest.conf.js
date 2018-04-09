@@ -19,5 +19,8 @@ module.exports = {
     '!src/main.js',
     '!**/node_modules/**'
   ],
-  setupTestFrameworkScriptFile: '<rootDir>test/unit/jestSetup.js'
+  transformIgnorePatterns: [
+    'node_modules/(?!@vue/web-component-wrapper)'
+  ],
+  setupTestFrameworkScriptFile: '<rootDir>test/unit/jestSetup.js',
 };

@@ -153,14 +153,14 @@
       };
     },
 
-    created() {
-      console.log('created');
-      // manually inject the compiled styles to shadowroot
-      //this.$root.$options.shadowRoot
-      if (this.$root && this.$style) {
-        this.$root.shadowRoot = this.$style;
-      }
-    },
+    // created() {
+    //   console.log('created');
+    //   // manually inject the compiled styles to shadowroot
+    //   //this.$root.$options.shadowRoot
+    //   if (this.$root && this.$style) {
+    //     this.$root.shadowRoot = this.$style;
+    //   }
+    // },
 
     methods: {
       cite(format) {
@@ -220,7 +220,6 @@
       },
 
       getTransitionClass() {
-        console.log(this.$style);
         if (this.transition === TRANSITION.closing) {
           return this.$style[TRANSITION.closing];
         }

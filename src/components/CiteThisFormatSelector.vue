@@ -6,7 +6,7 @@
     <div class="formatSelector__buttons">
       <button v-for="format in formats"
               :key="format"
-              class="formatSelector__button"
+              :class="['formatSelector__button', format]"
               @click="() => cite(format)"
       >
         {{ format }}
