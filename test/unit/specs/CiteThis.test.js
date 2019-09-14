@@ -52,7 +52,7 @@ describe('CiteThis', () => {
     const component = setup();
     const citeThisFormatSelector = component.find('.formatSelector');
 
-    const selectorProps = citeThisFormatSelector.vnode.componentOptions.propsData;
+    const selectorProps = citeThisFormatSelector.vm.$options.propsData;
 
     expect(selectorProps.cite).toBe(component.vm.cite);
     expect(selectorProps.formats).toBe(FORMATS);
