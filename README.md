@@ -5,7 +5,7 @@ Demo https://jesschampion.github.io/citethis/
 
 ## Installation & Usage
 ### Installation
-CiteThis can be installed from NPM `yarn add cite-this`
+CiteThis can be installed from NPM using `npm install cite-this` and from Yarn using `yarn add cite-this`
 
 ### Usage
 #### Vue Component Plugin
